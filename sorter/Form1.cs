@@ -101,6 +101,7 @@ namespace sorter
             }
             if (radioButton7.Checked)
             {
+                Console.WriteLine("test");
                 frm2.Owner = this;
                 frm2.ShowDialog();
                 originArr = frm2.getArray();
