@@ -60,30 +60,58 @@ namespace sorter
             //Console.WriteLine(md.min + " " + md.max + " " + md.count);
             //frm2. 
         }
-      
+
         private void button3_Click(object sender, EventArgs e)
         {
-            myArray = generateArrayRandom(test.count, test.min, test.max);
-            richTextBox1.Text = "Массив:\n" + string.Join(" ", myArray);
+            //myArray = generateArrayRandom(test.count, test.min, test.max);
+            //richTextBox1.Text = "Массив:\n" + string.Join(" ", myArray);
+            //int[] arr = originArr;
 
+            int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+            
             Pen pen = new Pen(Color.OrangeRed);
+            SolidBrush sb = new SolidBrush(pen.Color);
             Graphics graphics = pictureBox1.CreateGraphics();
             graphics.Clear(Color.Black);
-            //for(int i = (int)minLim)
 
+            int min = arr.Min();
+            int max = arr.Max();
 
+            graphics.FillRectangle(sb, 0 , 0, 15, 30);
 
+            for (int i = min; i <= max; i++)
+            {
+                for(int j = 0; j < arr.Length; j++)
+                {
+                    if (arr[j] >= i)
+                    {
+                        //graphics.FillRectangle(sb, 15 * j, pictureBox1.Height - 15 * i, 15, 15);
+                    }
+                    
+                }
+            }
 
+            pen = new Pen(Color.DarkGreen);
+            for(int i = 0; i < pictureBox1.Width; i += 15)
+            {
+                graphics.DrawLine(pen, i, 0, i, pictureBox1.Width);
+            }
+            /*
+            for (int i = 0; i < arr.Length; i++)
+            {
+                graphics.FillRectangle(sb,15*i, pictureBox1.Height - 15*i,15,15);
+            }
 
-            //for(int i = 0; i < myArray.Length; i++)
-            //{
-            //    richTextBox1.Text = ToString(myArray[i]);
-            //    Console.WriteLine("Элумент " + i + " : " + myArray[i]);
-            //}
-            //min = frm2.getMin();
-            //max = frm2.getMax();
-            //count = frm2.getCount();
-            //Console.WriteLine(test.min + " " + test.max + " " + test.count);
+            drawArray(arr);
+            */
+        }
+
+        private void drawArray(int[] arr)
+        {
+            for(int i =0; i < arr.Length; i++)
+            {
+
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -94,10 +122,11 @@ namespace sorter
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (radioButton8.Checked){
-                //DialogResult res = MessageBox.Show()
+            if (radioButton8.Checked){                
                 frm3.Owner = this;
                 frm3.ShowDialog();
+                originArr = frm3.GetArray();
+                richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
             }
             if (radioButton7.Checked)
             {
@@ -110,21 +139,13 @@ namespace sorter
             {
                 openFileDialog1.Filter = "TXT файлы (*.txt)|*.txt|CSV файлы (*.csv)|*.csv";
                 openFileDialog1.FileName = "";
-                //openFileDialog1.ShowDialog();
+                
                 if(openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     char sep = '\n';
                     string filename = openFileDialog1.FileName;
                     string[] filetext = System.IO.File.ReadAllText(filename).Split(sep);
 
-                    //for(int i=0;i< filetext.Split(sep).Length; i++)
-                    //{
-                    //    richTextBox1.Text = filetext[i];
-                    //}
-                    //richTextBox1.Text = filetext.Split(sep).ToString;
-                    //richTextBox1.Text = Convert.ToInt32(filetext.Split(sep).ToArray());
-                    //originArr = filetext.Select(n => int.Parse(n.Trim))
-                    //originArr = Convert.ToInt32(filetext);
                     originArr = new int[filetext.Length];
                     for (int i = 0; i< filetext.Length; i++)
                     {
@@ -132,10 +153,7 @@ namespace sorter
                     }
                     richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
                 }
-            }
-            //openFileDialog1.Filter = "CSV файлы (*.csv)|*.csv";
-            //openFileDialog1.FileName = "";
-            //openFileDialog1.ShowDialog();
+            }           
         }
 
         private void button5_Click(object sender, EventArgs e)

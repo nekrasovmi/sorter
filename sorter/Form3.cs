@@ -22,7 +22,7 @@ namespace sorter
         public Form3()
         {
             InitializeComponent();
-            button3.Visible = false;
+            //button3.Visible = false;
 
         }
 
@@ -39,11 +39,13 @@ namespace sorter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            len = Convert.ToInt32(numericUpDown1.Value);
+            this.Hide();
+            /*len = Convert.ToInt32(numericUpDown1.Value);
             label1.Text = "Введите " + item + " элемент массива";
             //textBox1.Text = null;
             button1.Visible = false;
             button3.Visible = true;
+            */
             //arr = new int[len];
             //arr = Array[len];
             //int item = 1;
@@ -52,7 +54,7 @@ namespace sorter
             //    label1.Text = "Введите " + item + " элемент массива";
             //    item++;
             //}
-            Form1.test.myarray = new int[len];
+            //Form1.test.myarray = new int[len];
 
         }
 
@@ -96,6 +98,69 @@ namespace sorter
         {
             dataGridView1.Columns[0].ReadOnly = true;
             
+        }
+
+        private void dataGridView1_CancelRowEdit(object sender, QuestionEventArgs e)
+        {
+            //Console.WriteLine("edit cell");
+        }
+
+        private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
+        {
+            //Console.WriteLine("edit cell");
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            //Console.WriteLine("edit cell cancel");
+        }
+
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            incrementIndex();
+            /*for(int i =0; i< dataGridView1.RowCount-1; i++)
+            {
+                dataGridView1.Rows[i].Cells[0].Value = i+1;
+            }*/
+        }
+
+        private void dataGridView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //string s = new string(e.KeyChar,1);
+            //Console.WriteLine(s);
+            if (e.KeyChar == 8 || e.KeyChar == 46) 
+            {
+                dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+                incrementIndex();
+                //Console.WriteLine("backspace");
+                //Console.WriteLine();
+            }
+            /*if (e.KeyChar == 46)
+            {
+                //Console.WriteLine("del");
+                //Console.WriteLine();
+            }*/
+        }
+
+        private void incrementIndex()
+        {
+            for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+            {
+                dataGridView1.Rows[i].Cells[0].Value = i + 1;
+            }
+        }
+
+        public int[] GetArray()
+        {
+            int[] handleArray = new int[dataGridView1.RowCount - 1];
+
+            for (int i = 0; i < dataGridView1.RowCount - 1; i++)
+            {
+                //dataGridView1.Rows[i].Cells[1].Value;
+                handleArray[i] = Convert.ToInt32(dataGridView1.Rows[i].Cells[1].Value);
+            }
+
+            return handleArray;
         }
     }
 }
