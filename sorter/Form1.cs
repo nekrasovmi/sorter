@@ -33,6 +33,9 @@ namespace sorter
         Form2 frm2 = new Form2();
         Form3 frm3 = new Form3();
         int[] myArray;
+        private BufferedGraphics buff;
+        
+        
 
         sortedMethods sm = new sortedMethods();
         
@@ -43,6 +46,7 @@ namespace sorter
 
         private static int[] generateArrayRandom(int size, int minValue, int maxValue)
         {
+
             int[] randomArray = new int[size];
             for (int i = 0; i < size; i++)
             {
@@ -132,16 +136,19 @@ namespace sorter
             Pen pen = new Pen(Color.OrangeRed);
             SolidBrush sb = new SolidBrush(pen.Color);
             Graphics graphics = pictureBox1.CreateGraphics();
-            graphics.Clear(Color.Black);
+            //graphics.Clear(Color.Black);
+            buff.Graphics.Clear(Color.Black);
             int deltaW = pictureBox1.Width / array.Length;
             int deltaH = pictureBox1.Height / array.Max();
 
             for (int i = 0; i < array.Length; i++)
             {
-                //graphics.FillRectangle(sb, i*15 , pictureBox1.Height-(test[i] * 15), 15, test[i] * 15);
-                graphics.FillRectangle(sb, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
+                //graphics.FillRectangle(sb, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
+                buff.Graphics.FillRectangle(sb, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
+                buff.Render();
             }
-            pen = new Pen(Color.DarkGreen);
+            
+            /*pen = new Pen(Color.DarkGreen);
             for (int i = 0; i < pictureBox1.Width; i += deltaW)
             {
                 graphics.DrawLine(pen, i, 0, i, pictureBox1.Width);
@@ -149,13 +156,37 @@ namespace sorter
             for (int i = 0; i < pictureBox1.Width; i += deltaH)
             {
                 //graphics.DrawLine(pen, 0, pictureBox1.Height - i, pictureBox1.Width, pictureBox1.Height - i);
-            }
+            }*/
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            sm.bubbleSort(myArray);
+            buff.Graphics.Clear(Color.Black);
+            int n = originArr.Length;
+            int[] sortedArr;
+            //int[] tmpArrr;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n-i-1; j++)
+                {
+                    if (originArr[j] > originArr[j+1])
+                    {
+                        int temp = originArr[j];
+                        originArr[j] = originArr[j + 1];
+                        originArr[j+1] = temp;
+                        //drawArray(originArr);
+                        //buff.Render();
+                        //tmpArrr = originArr;
+                    }
+                    drawArray(originArr);
+                    buff.Render();
+                }
+                
+            }
+            sortedArr = originArr;
+            //richTextBox1.Text = "Сортированный массив:\n" + string.Join(" ", sortedArr);
+            richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+            //sm.bubbleSort(myArray);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -199,8 +230,11 @@ namespace sorter
 
         private void button5_Click(object sender, EventArgs e)
         {
-            myArray = generateArrayRandom(rand.Next(2, 20), 1, 50);
-            drawArray(myArray);
+            buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
+            originArr = generateArrayRandom(rand.Next(20, 70), 1, 50);
+            richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
+            
+            drawArray(originArr);
             //rand.Next(2, 20);
             //Console.WriteLine(radioButton6.Checked)
             //Console.WriteLine(radioButton6.Checked);
