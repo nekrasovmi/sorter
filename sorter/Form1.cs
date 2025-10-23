@@ -63,7 +63,8 @@ namespace sorter
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //myArray = generateArrayRandom(test.count, test.min, test.max);
+            //drawArray(originArr);
+            /*//myArray = generateArrayRandom(test.count, test.min, test.max);
             //richTextBox1.Text = "Массив:\n" + string.Join(" ", myArray);
             int[] arr = originArr;
 
@@ -126,11 +127,28 @@ namespace sorter
             */
         }
 
-        private void drawArray(int[] arr)
+        private void drawArray(int[] array)
         {
-            for(int i =0; i < arr.Length; i++)
-            {
+            Pen pen = new Pen(Color.OrangeRed);
+            SolidBrush sb = new SolidBrush(pen.Color);
+            Graphics graphics = pictureBox1.CreateGraphics();
+            graphics.Clear(Color.Black);
+            int deltaW = pictureBox1.Width / array.Length;
+            int deltaH = pictureBox1.Height / array.Max();
 
+            for (int i = 0; i < array.Length; i++)
+            {
+                //graphics.FillRectangle(sb, i*15 , pictureBox1.Height-(test[i] * 15), 15, test[i] * 15);
+                graphics.FillRectangle(sb, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
+            }
+            pen = new Pen(Color.DarkGreen);
+            for (int i = 0; i < pictureBox1.Width; i += deltaW)
+            {
+                graphics.DrawLine(pen, i, 0, i, pictureBox1.Width);
+            }
+            for (int i = 0; i < pictureBox1.Width; i += deltaH)
+            {
+                //graphics.DrawLine(pen, 0, pictureBox1.Height - i, pictureBox1.Width, pictureBox1.Height - i);
             }
         }
 
@@ -147,6 +165,7 @@ namespace sorter
                 frm3.ShowDialog();
                 originArr = frm3.GetArray();
                 richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
+                drawArray(originArr);
             }
             if (radioButton7.Checked)
             {
@@ -154,6 +173,7 @@ namespace sorter
                 frm2.ShowDialog();
                 originArr = frm2.GetArray();
                 richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
+                drawArray(originArr);
             }
             if (radioButton6.Checked)
             {
@@ -172,14 +192,18 @@ namespace sorter
                         originArr[i] = Convert.ToInt32(filetext[i]);
                     }
                     richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
+                    drawArray(originArr);
                 }
             }           
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            myArray = generateArrayRandom(rand.Next(2, 20), 1, 50);
+            drawArray(myArray);
+            //rand.Next(2, 20);
             //Console.WriteLine(radioButton6.Checked)
-            Console.WriteLine(radioButton6.Checked);
+            //Console.WriteLine(radioButton6.Checked);
         }
     }
 }
