@@ -65,10 +65,10 @@ namespace sorter
         {
             //myArray = generateArrayRandom(test.count, test.min, test.max);
             //richTextBox1.Text = "Массив:\n" + string.Join(" ", myArray);
-            //int[] arr = originArr;
+            int[] arr = originArr;
 
-            int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-            
+            //int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
             Pen pen = new Pen(Color.OrangeRed);
             SolidBrush sb = new SolidBrush(pen.Color);
             Graphics graphics = pictureBox1.CreateGraphics();
@@ -76,8 +76,24 @@ namespace sorter
 
             int min = arr.Min();
             int max = arr.Max();
+            
+            
+            //int[] test = { 10, 10, 2, 7, 13, 12, 12, 13, 14, 1, 4, 11, 12, 1, 14, 13, 4, 8, 6, 10};
+            //int[] test = { 10, 10, 2, 7, 13 };
+            //int element = 17;
+            int deltaW = pictureBox1.Width / arr.Length;
+            int deltaH = pictureBox1.Height / arr.Max();
 
-            graphics.FillRectangle(sb, 0 , 0, 15, 30);
+            //graphics.FillRectangle(sb, 0, pictureBox1.Height - (element * 15), 15, element * 15);
+
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                //graphics.FillRectangle(sb, i*15 , pictureBox1.Height-(test[i] * 15), 15, test[i] * 15);
+                graphics.FillRectangle(sb, i * deltaW, pictureBox1.Height - (arr[i] * deltaH), deltaW, arr[i] * deltaH);
+            }
+
+            //graphics.FillRectangle(sb, 0 , pictureBox1.Height-(element * 15), 15, element * 15);
 
             for (int i = min; i <= max; i++)
             {
@@ -92,9 +108,13 @@ namespace sorter
             }
 
             pen = new Pen(Color.DarkGreen);
-            for(int i = 0; i < pictureBox1.Width; i += 15)
+            for(int i = 0; i < pictureBox1.Width; i += deltaW)
             {
                 graphics.DrawLine(pen, i, 0, i, pictureBox1.Width);
+            }
+            for (int i = 0; i < pictureBox1.Width; i += deltaH)
+            {
+                graphics.DrawLine(pen, 0, pictureBox1.Height-i, pictureBox1.Width, pictureBox1.Height-i);
             }
             /*
             for (int i = 0; i < arr.Length; i++)
