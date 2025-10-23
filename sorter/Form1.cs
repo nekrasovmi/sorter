@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace sorter
@@ -26,6 +27,7 @@ namespace sorter
     }
     public partial class Form1 : Form
     {
+        
         //public int[] myarray;
         static public minmaxcount test;
         private static Random rand = new Random();
@@ -42,6 +44,7 @@ namespace sorter
         public Form1()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
 
         private static int[] generateArrayRandom(int size, int minValue, int maxValue)
@@ -135,7 +138,7 @@ namespace sorter
         {
             Pen pen = new Pen(Color.OrangeRed);
             SolidBrush sb = new SolidBrush(pen.Color);
-            Graphics graphics = pictureBox1.CreateGraphics();
+            //Graphics graphics = pictureBox1.CreateGraphics();
             //graphics.Clear(Color.Black);
             buff.Graphics.Clear(Color.Black);
             int deltaW = pictureBox1.Width / array.Length;
@@ -145,7 +148,7 @@ namespace sorter
             {
                 //graphics.FillRectangle(sb, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
                 buff.Graphics.FillRectangle(sb, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
-                buff.Render();
+                //buff.Render();
             }
             
             /*pen = new Pen(Color.DarkGreen);
@@ -174,12 +177,13 @@ namespace sorter
                         int temp = originArr[j];
                         originArr[j] = originArr[j + 1];
                         originArr[j+1] = temp;
-                        //drawArray(originArr);
-                        //buff.Render();
+                        drawArray(originArr);
+                        buff.Render();
+                        Thread.Sleep(1);
                         //tmpArrr = originArr;
                     }
-                    drawArray(originArr);
-                    buff.Render();
+                    //drawArray(originArr);
+                    //buff.Render();
                 }
                 
             }
@@ -197,6 +201,7 @@ namespace sorter
                 originArr = frm3.GetArray();
                 richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
                 drawArray(originArr);
+                buff.Render();
             }
             if (radioButton7.Checked)
             {
@@ -205,6 +210,7 @@ namespace sorter
                 originArr = frm2.GetArray();
                 richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
                 drawArray(originArr);
+                buff.Render();
             }
             if (radioButton6.Checked)
             {
@@ -224,6 +230,7 @@ namespace sorter
                     }
                     richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
                     drawArray(originArr);
+                    buff.Render();
                 }
             }           
         }
@@ -231,13 +238,24 @@ namespace sorter
         private void button5_Click(object sender, EventArgs e)
         {
             buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
-            originArr = generateArrayRandom(rand.Next(20, 70), 1, 50);
+            //pictureBox1
+            originArr = generateArrayRandom(rand.Next(20, 70), 1, 70);
             richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
             
             drawArray(originArr);
+            buff.Render();
             //rand.Next(2, 20);
             //Console.WriteLine(radioButton6.Checked)
             //Console.WriteLine(radioButton6.Checked);
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            //buff.Render();
+            /*
+            buff = e.Graphics;
+            buff.Graphics.FillRectangle(sb, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
+            */
         }
     }
 }

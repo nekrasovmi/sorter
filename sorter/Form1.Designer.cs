@@ -256,6 +256,7 @@ namespace sorter
             this.pictureBox1.Size = new System.Drawing.Size(500, 325);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // Form1
             // 
