@@ -101,17 +101,37 @@ namespace sorter
             }
             if (radioButton7.Checked)
             {
-                Console.WriteLine("test");
                 frm2.Owner = this;
                 frm2.ShowDialog();
-                originArr = frm2.getArray();
+                originArr = frm2.GetArray();
                 richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
             }
             if (radioButton6.Checked)
             {
-                openFileDialog1.Filter = "CSV файлы (*.csv)|*.csv";
+                openFileDialog1.Filter = "TXT файлы (*.txt)|*.txt|CSV файлы (*.csv)|*.csv";
                 openFileDialog1.FileName = "";
-                openFileDialog1.ShowDialog();
+                //openFileDialog1.ShowDialog();
+                if(openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    char sep = '\n';
+                    string filename = openFileDialog1.FileName;
+                    string[] filetext = System.IO.File.ReadAllText(filename).Split(sep);
+
+                    //for(int i=0;i< filetext.Split(sep).Length; i++)
+                    //{
+                    //    richTextBox1.Text = filetext[i];
+                    //}
+                    //richTextBox1.Text = filetext.Split(sep).ToString;
+                    //richTextBox1.Text = Convert.ToInt32(filetext.Split(sep).ToArray());
+                    //originArr = filetext.Select(n => int.Parse(n.Trim))
+                    //originArr = Convert.ToInt32(filetext);
+                    originArr = new int[filetext.Length];
+                    for (int i = 0; i< filetext.Length; i++)
+                    {
+                        originArr[i] = Convert.ToInt32(filetext[i]);
+                    }
+                    richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
+                }
             }
             //openFileDialog1.Filter = "CSV файлы (*.csv)|*.csv";
             //openFileDialog1.FileName = "";

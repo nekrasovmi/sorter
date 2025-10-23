@@ -12,7 +12,7 @@ namespace sorter
 {
     public partial class Form2 : Form
     {
-        private int[] randomArray;
+        //private int[] randomArray;
         private Random rand = new Random();
         //public int min;
         //public mydataset md = new mydataset();
@@ -51,11 +51,16 @@ namespace sorter
 
             this.Hide();
         }
-        public int[] getArray()
+        public int[] GetArray()
         {
-            int size = Convert.ToInt32(textBox3.Text);
+            int size = Convert.ToInt32(numericUpDown3.Value);
+            int minValue = Convert.ToInt32(numericUpDown1.Value);
+            int maxValue = Convert.ToInt32(numericUpDown2.Value);
+
+            /*int size = Convert.ToInt32(textBox3.Text);
             int minValue = Convert.ToInt32(textBox1.Text);
             int maxValue = Convert.ToInt32(textBox2.Text);
+            */
             int[] randomArray = new int[size];
             for (int i = 0; i < size; i++)
             {
