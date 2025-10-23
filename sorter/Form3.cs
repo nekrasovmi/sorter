@@ -17,11 +17,13 @@ namespace sorter
         public int len;
         public int item = 0;
         public bool endMassive = false;
+        DataTable dt = new DataTable();
         //public Array myarr = new Array;
         public Form3()
         {
             InitializeComponent();
             button3.Visible = false;
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -37,7 +39,7 @@ namespace sorter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            len = Convert.ToInt32(textBox1.Text);
+            len = Convert.ToInt32(numericUpDown1.Value);
             label1.Text = "Введите " + item + " элемент массива";
             //textBox1.Text = null;
             button1.Visible = false;
@@ -56,6 +58,7 @@ namespace sorter
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
             /*
             while ()
             {
@@ -80,8 +83,19 @@ namespace sorter
             for (int i = 0; i < len; i++)
             {
                 Console.WriteLine();
-            } */           
-                
+            } */
+            
+            
+            /*public int[] GetArray()
+            {
+
+            }*/
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            dataGridView1.Columns[0].ReadOnly = true;
+            
         }
     }
 }
