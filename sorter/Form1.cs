@@ -191,6 +191,7 @@ namespace sorter
                         : originArr[j] < originArr[j + 1];
 
                     //if (originArr[j] > originArr[j+1])
+
                     if (needSwap)
                     {
                         int temp = originArr[j];
