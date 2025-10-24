@@ -22,8 +22,8 @@ namespace sorter
 
     public enum SortDirection
     {
-        Ascending = 0,
-        Descending = 1
+        Ascending,
+        Descending
     }
     public partial class Form1 : Form
     {
@@ -34,7 +34,7 @@ namespace sorter
         private int[] originArr;
         Form2 frm2 = new Form2();
         Form3 frm3 = new Form3();
-        int[] myArray;
+        //int[] myArray;
         private BufferedGraphics buff;
         //BufferedGraphics buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
         
@@ -166,7 +166,8 @@ namespace sorter
         private void button1_Click(object sender, EventArgs e)
         {
             /////Сортировка пузырем
-            /*
+            SortDirection dir = SortDirection.Ascending;
+            //Console.WriteLine(dir);
             buff.Graphics.Clear(Color.Black);
             int n = originArr.Length;
             
@@ -174,7 +175,7 @@ namespace sorter
             {
                 for (int j = 0; j < n-i-1; j++)
                 {
-                    if (originArr[j] < originArr[j+1])
+                    if (originArr[j] > originArr[j+1])
                     {
                         int temp = originArr[j];
                         originArr[j] = originArr[j + 1];
@@ -186,7 +187,7 @@ namespace sorter
                 }                
             }            
             richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
-            */
+            
 
             //////Сортировка шейкером
             /*
@@ -270,7 +271,7 @@ namespace sorter
                 Thread.Sleep(1);
             }
             //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
-            */
+            
 
             /////////Сортировка Бого
             buff.Graphics.Clear(Color.Black);
@@ -285,6 +286,7 @@ namespace sorter
                 Thread.Sleep(1);                
             }
             richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+            */
         }
 
         private bool ArrayIsSorted(int[] array)
