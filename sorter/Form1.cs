@@ -36,7 +36,7 @@ namespace sorter
         Form3 frm3 = new Form3();
         int[] myArray;
         private BufferedGraphics buff;
-        
+        //BufferedGraphics buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
         
 
         sortedMethods sm = new sortedMethods();
@@ -45,6 +45,7 @@ namespace sorter
         {
             InitializeComponent();
             this.DoubleBuffered = true;
+            buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
         }
 
         private static int[] generateArrayRandom(int size, int minValue, int maxValue)
@@ -166,13 +167,13 @@ namespace sorter
         {
             buff.Graphics.Clear(Color.Black);
             int n = originArr.Length;
-            int[] sortedArr;
+            //int[] sortedArr;
             //int[] tmpArrr;
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n-i-1; j++)
                 {
-                    if (originArr[j] > originArr[j+1])
+                    if (originArr[j] < originArr[j+1])
                     {
                         int temp = originArr[j];
                         originArr[j] = originArr[j + 1];
@@ -187,7 +188,7 @@ namespace sorter
                 }
                 
             }
-            sortedArr = originArr;
+            //sortedArr = originArr;
             //richTextBox1.Text = "Сортированный массив:\n" + string.Join(" ", sortedArr);
             richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
             //sm.bubbleSort(myArray);
@@ -237,7 +238,7 @@ namespace sorter
 
         private void button5_Click(object sender, EventArgs e)
         {
-            buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
+            //buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
             //pictureBox1
             originArr = generateArrayRandom(rand.Next(20, 70), 1, 70);
             richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
