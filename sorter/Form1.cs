@@ -36,6 +36,7 @@ namespace sorter
         Form3 frm3 = new Form3();
         //int[] myArray;
         private BufferedGraphics buff;
+        SortDirection dir = SortDirection.Ascending;
         //BufferedGraphics buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
         
 
@@ -165,9 +166,19 @@ namespace sorter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /////Сортировка пузырем
-            SortDirection dir = SortDirection.Ascending;
-            //Console.WriteLine(dir);
+            if (radioButton12.Checked)
+            {
+                dir = SortDirection.Ascending;
+                //SortDirection dir = SortDirection.Ascending;
+            }
+            if (radioButton11.Checked)
+            {
+                dir = SortDirection.Descending;
+            }
+            
+                /////Сортировка пузырем
+                //SortDirection dir = SortDirection.Ascending;
+                //Console.WriteLine(dir);
             buff.Graphics.Clear(Color.Black);
             int n = originArr.Length;
             
@@ -175,7 +186,12 @@ namespace sorter
             {
                 for (int j = 0; j < n-i-1; j++)
                 {
-                    if (originArr[j] > originArr[j+1])
+                    bool needSwap = dir == SortDirection.Ascending
+                        ? originArr[j] > originArr[j + 1]
+                        : originArr[j] < originArr[j + 1];
+
+                    //if (originArr[j] > originArr[j+1])
+                    if (needSwap)
                     {
                         int temp = originArr[j];
                         originArr[j] = originArr[j + 1];
