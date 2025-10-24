@@ -165,10 +165,11 @@ namespace sorter
 
         private void button1_Click(object sender, EventArgs e)
         {
+            /////Сортировка пузырем
+            /*
             buff.Graphics.Clear(Color.Black);
             int n = originArr.Length;
-            //int[] sortedArr;
-            //int[] tmpArrr;
+            
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n-i-1; j++)
@@ -180,18 +181,138 @@ namespace sorter
                         originArr[j+1] = temp;
                         drawArray(originArr);
                         buff.Render();
-                        Thread.Sleep(1);
-                        //tmpArrr = originArr;
-                    }
-                    //drawArray(originArr);
-                    //buff.Render();
-                }
-                
-            }
-            //sortedArr = originArr;
-            //richTextBox1.Text = "Сортированный массив:\n" + string.Join(" ", sortedArr);
+                        Thread.Sleep(1);                        
+                    }                    
+                }                
+            }            
             richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
-            //sm.bubbleSort(myArray);
+            */
+
+            //////Сортировка шейкером
+            /*
+            buff.Graphics.Clear(Color.Black);
+            //int[] test = { 27, 3, 30, 8 };
+            //int n = test.Length;
+            int n = originArr.Length;
+            int start = 0;
+            int end = n -1 ;
+            bool swapped;
+
+            do
+            {
+                swapped = false;
+                for (int i = start; i < end; i++)
+                {
+                    if (originArr[i] > originArr[i + 1])
+                    {
+                        SwapElements(originArr, i, i+1);
+                        //int temp = originArr[i];
+                        //originArr[i] = originArr[i + 1];
+                        //originArr[i + 1] = temp;
+                        swapped = true;
+
+                        //richTextBox1.AppendText("\nswap++\n");
+                        drawArray(originArr);
+                        buff.Render();
+                        Thread.Sleep(1);
+
+                    }
+                }
+                end--;
+
+                swapped = false;
+                for (int i = end; i >= start; i--)
+                    {
+                        if (originArr[i] > originArr[i + 1])
+                        {
+                            SwapElements(originArr, i, i+1);
+                            //int temp = originArr[i];
+                            //originArr[i] = originArr[i + 1];
+                            //originArr[i + 1] = temp;
+                            swapped = true;
+                            //richTextBox1.AppendText("\nswap--\n");
+                            drawArray(originArr);
+                            buff.Render();
+                            Thread.Sleep(1);
+                            
+                        }
+                    }
+                start++;
+
+            } while (swapped && start <= end);
+            richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+            */
+
+            /*
+            /////////Сортировка вставками
+            buff.Graphics.Clear(Color.Black);
+            //int[] test = { 27, 3, 30, 8 };
+            int n = originArr.Length;
+            //int start = 0;
+            //int end = n;
+            //bool swapped;
+
+            for (int i = 1; i < n; i++)
+            {
+                int current = originArr[i];
+                int j = i - 1;
+                while (j >= 0 && originArr[j] > current)
+                {
+                    originArr[j + 1] = originArr[j];
+                    j--;
+                    drawArray(originArr);
+                    buff.Render();
+                    Thread.Sleep(1);
+                }
+                originArr[j + 1] = current;
+                drawArray(originArr);
+                buff.Render();
+                Thread.Sleep(1);
+            }
+            //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+            */
+
+            /////////Сортировка Бого
+            buff.Graphics.Clear(Color.Black);
+            int attemps = 0;
+
+            while (!ArrayIsSorted(originArr))
+            {
+                Suffle(originArr);
+                attemps++;
+                drawArray(originArr);
+                buff.Render();
+                Thread.Sleep(1);                
+            }
+            richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+        }
+
+        private bool ArrayIsSorted(int[] array)
+        {
+            for(int i = 0; i < array.Length - 1; i++)
+            {
+                if(array[i] > array[i + 1])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private void Suffle(int[] array)
+        {
+            for(int i = 0; i < array.Length; i++)
+            {
+                int randomIndex = rand.Next(i, array.Length);
+                SwapElements(array, i, randomIndex);
+            }
+        }
+
+        private void SwapElements(int[] array, int currentIndex, int nextIndex)
+        {
+            int temp = array[currentIndex];
+            array[currentIndex] = array[nextIndex];
+            array[nextIndex] = temp;
         }
 
         private void button4_Click(object sender, EventArgs e)
