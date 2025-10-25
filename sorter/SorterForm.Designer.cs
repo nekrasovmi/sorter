@@ -67,9 +67,9 @@ namespace sorter
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.Location = new System.Drawing.Point(15, 74);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(202, 112);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -79,7 +79,7 @@ namespace sorter
             // 
             this.radioButton4.AutoSize = true;
             this.radioButton4.Location = new System.Drawing.Point(4, 83);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(56, 21);
             this.radioButton4.TabIndex = 2;
@@ -91,7 +91,7 @@ namespace sorter
             // 
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(4, 61);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(79, 21);
             this.radioButton3.TabIndex = 2;
@@ -103,7 +103,7 @@ namespace sorter
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(4, 39);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(76, 21);
             this.radioButton2.TabIndex = 2;
@@ -115,7 +115,7 @@ namespace sorter
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(4, 17);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(83, 21);
             this.radioButton1.TabIndex = 1;
@@ -131,9 +131,9 @@ namespace sorter
             this.groupBox2.Controls.Add(this.radioButton8);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox2.Location = new System.Drawing.Point(15, 262);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(202, 85);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -142,7 +142,7 @@ namespace sorter
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(110, 35);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(81, 24);
             this.button4.TabIndex = 5;
@@ -154,7 +154,7 @@ namespace sorter
             // 
             this.radioButton6.AutoSize = true;
             this.radioButton6.Location = new System.Drawing.Point(4, 61);
-            this.radioButton6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton6.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(63, 21);
             this.radioButton6.TabIndex = 2;
@@ -166,7 +166,7 @@ namespace sorter
             // 
             this.radioButton7.AutoSize = true;
             this.radioButton7.Location = new System.Drawing.Point(4, 39);
-            this.radioButton7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton7.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton7.Name = "radioButton7";
             this.radioButton7.Size = new System.Drawing.Size(100, 21);
             this.radioButton7.TabIndex = 2;
@@ -178,7 +178,7 @@ namespace sorter
             // 
             this.radioButton8.AutoSize = true;
             this.radioButton8.Location = new System.Drawing.Point(4, 17);
-            this.radioButton8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton8.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton8.Name = "radioButton8";
             this.radioButton8.Size = new System.Drawing.Size(74, 21);
             this.radioButton8.TabIndex = 1;
@@ -192,9 +192,9 @@ namespace sorter
             this.groupBox3.Controls.Add(this.radioButton12);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox3.Location = new System.Drawing.Point(15, 190);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(202, 68);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
@@ -204,7 +204,7 @@ namespace sorter
             // 
             this.radioButton11.AutoSize = true;
             this.radioButton11.Location = new System.Drawing.Point(4, 39);
-            this.radioButton11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton11.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton11.Name = "radioButton11";
             this.radioButton11.Size = new System.Drawing.Size(92, 21);
             this.radioButton11.TabIndex = 2;
@@ -216,7 +216,7 @@ namespace sorter
             // 
             this.radioButton12.AutoSize = true;
             this.radioButton12.Location = new System.Drawing.Point(4, 17);
-            this.radioButton12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton12.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton12.Name = "radioButton12";
             this.radioButton12.Size = new System.Drawing.Size(112, 21);
             this.radioButton12.TabIndex = 1;
@@ -228,7 +228,7 @@ namespace sorter
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(15, 351);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 29);
             this.button1.TabIndex = 3;
@@ -244,7 +244,7 @@ namespace sorter
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBox1.Location = new System.Drawing.Point(15, 384);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(814, 88);
@@ -258,7 +258,7 @@ namespace sorter
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(773, 351);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(56, 19);
             this.button5.TabIndex = 5;
@@ -269,7 +269,7 @@ namespace sorter
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(230, 52);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(599, 292);
             this.pictureBox1.TabIndex = 6;
@@ -280,7 +280,7 @@ namespace sorter
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(433, 9);
+            this.label1.Location = new System.Drawing.Point(300, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 20);
             this.label1.TabIndex = 7;
@@ -315,7 +315,7 @@ namespace sorter
             this.label5.Text = "_________________________________________________________________________________" +
     "______________________________________________________";
             // 
-            // Form1
+            // SorterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -331,8 +331,8 @@ namespace sorter
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "Form1";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "SorterForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
