@@ -12,15 +12,21 @@ namespace sorter
 {    
     public partial class MenuForm : Form
     {
+        public static MenuForm Instance;
         public MenuForm()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            Icon = Properties.Resources.menuico;
+            Instance = this;
         }
 
-        SorterForm sorterForm = new SorterForm();
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DichotomyForm dichotomyForm = new DichotomyForm();
+            dichotomyForm.Show();
+            this.Hide();
             //MessageBox.Show("Click");
             //var frm2 = new Form2();
             //frm2.Show();
@@ -95,7 +101,22 @@ namespace sorter
 
         private void button4_Click(object sender, EventArgs e)
         {
+            SortingForm sorterForm = new SortingForm();
             sorterForm.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            GoldenRatioForm goldenRatioForm = new GoldenRatioForm();
+            goldenRatioForm.Show();
+            this.Hide();            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            IntegratingForm integratingForm = new IntegratingForm();
+            integratingForm.Show();
             this.Hide();
         }
     }

@@ -25,9 +25,9 @@ namespace sorter
         Ascending,
         Descending
     }
-    public partial class SorterForm : Form
+    public partial class SortingForm : Form
     {
-        
+        //private MenuForm menuForm;
         //public int[] myarray;
         static public minmaxcount test;
         private static Random rand = new Random();
@@ -37,21 +37,22 @@ namespace sorter
         //int[] myArray;
         private BufferedGraphics buff;
         SortDirection dir = SortDirection.Ascending;
+        //MenuForm e;
         //BufferedGraphics buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
         
 
-        sortedMethods sm = new sortedMethods();
+        //sortedMethods sm = new sortedMethods();
         
-        public SorterForm()
+        public SortingForm()
         {
             InitializeComponent();
+            Icon = Properties.Resources.sortingIco;
             this.DoubleBuffered = true;
             buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
         }
 
         private static int[] generateArrayRandom(int size, int minValue, int maxValue)
-        {
-
+        {            
             int[] randomArray = new int[size];
             for (int i = 0; i < size; i++)
             {
@@ -438,8 +439,8 @@ namespace sorter
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            this.Close();
-            
+            Close();            
+            MenuForm.Instance.Show();            
         }
     }
 }

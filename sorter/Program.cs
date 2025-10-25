@@ -14,10 +14,12 @@ namespace sorter
         [STAThread]
         static void Main()
         {
+            //SorterForm frm = new SorterForm();
+            //MenuForm frm2 = new MenuForm();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MenuForm());
-            //Application.Run(new Form1());
+            Application.Run(new IntegratingForm());            
         }
     }
 }
