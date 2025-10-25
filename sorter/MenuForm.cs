@@ -17,7 +17,7 @@ namespace sorter
             InitializeComponent();            
         }
 
-        SorterForm frm1 = new SorterForm();
+        SorterForm sorterForm = new SorterForm();
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -95,7 +95,7 @@ namespace sorter
 
         private void button4_Click(object sender, EventArgs e)
         {
-            frm1.Show();
+            sorterForm.Show();
             this.Hide();
         }
     }
