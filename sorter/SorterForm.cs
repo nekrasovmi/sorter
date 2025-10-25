@@ -405,5 +405,15 @@ namespace sorter
         {
 
         }
+
+        private void radioButton12_CheckedChanged(object sender, EventArgs e)
+        {            
+            pictureBox2.Image = Properties.Resources.Ascending;            
+        }
+
+        private void radioButton11_CheckedChanged(object sender, EventArgs e)
+        {
+            pictureBox2.Image = Properties.Resources.Descending;
+        }
     }
 }
