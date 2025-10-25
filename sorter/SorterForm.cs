@@ -415,5 +415,25 @@ namespace sorter
         {
             pictureBox2.Image = Properties.Resources.Descending;
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            pictureBox3.Image = Properties.Resources.bubbles;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            pictureBox3.Image = Properties.Resources.shaker;
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            pictureBox3.Image = Properties.Resources.insert;
+        }
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        {
+            pictureBox3.Image = Properties.Resources.bogo;
+        }
     }
 }

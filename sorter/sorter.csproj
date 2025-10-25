@@ -108,10 +108,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\bogo.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Descending.png" />
     <None Include="Resources\Ascending.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bubbles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shaker.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
