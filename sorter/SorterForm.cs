@@ -25,15 +25,15 @@ namespace sorter
         Ascending,
         Descending
     }
-    public partial class Form1 : Form
+    public partial class SorterForm : Form
     {
         
         //public int[] myarray;
         static public minmaxcount test;
         private static Random rand = new Random();
         private int[] originArr;
-        Form2 frm2 = new Form2();
-        Form3 frm3 = new Form3();
+        Form2 pForm = new Form2();
+        Form3 hIForm = new Form3();
         //int[] myArray;
         private BufferedGraphics buff;
         SortDirection dir = SortDirection.Ascending;
@@ -42,7 +42,7 @@ namespace sorter
 
         sortedMethods sm = new sortedMethods();
         
-        public Form1()
+        public SorterForm()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
@@ -64,8 +64,8 @@ namespace sorter
         {
             //MessageBox.Show("Message", "ssss", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             //frm2.Show();
-            frm2.Owner = this;
-            frm2.ShowDialog();
+            pForm.Owner = this;
+            pForm.ShowDialog();
             //Console.WriteLine(md.min + " " + md.max + " " + md.count);
             //frm2. 
         }
@@ -296,7 +296,8 @@ namespace sorter
 
             while (!ArrayIsSorted(originArr))
             {
-                Suffle(originArr);
+
+                Shuffle(originArr);
                 attemps++;
                 drawArray(originArr);
                 buff.Render();
@@ -318,7 +319,7 @@ namespace sorter
             return true;
         }
 
-        private void Suffle(int[] array)
+        private void Shuffle(int[] array)
         {
             for(int i = 0; i < array.Length; i++)
             {
@@ -336,19 +337,19 @@ namespace sorter
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (radioButton8.Checked){                
-                frm3.Owner = this;
-                frm3.ShowDialog();
-                originArr = frm3.GetArray();
+            if (radioButton8.Checked){
+                hIForm.Owner = this;
+                hIForm.ShowDialog();
+                originArr = hIForm.GetArray();
                 richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
                 drawArray(originArr);
                 buff.Render();
             }
             if (radioButton7.Checked)
             {
-                frm2.Owner = this;
-                frm2.ShowDialog();
-                originArr = frm2.GetArray();
+                pForm.Owner = this;
+                pForm.ShowDialog();
+                originArr = pForm.GetArray();
                 richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
                 drawArray(originArr);
                 buff.Render();
@@ -378,6 +379,7 @@ namespace sorter
 
         private void button5_Click(object sender, EventArgs e)
         {
+            
             //buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
             //pictureBox1
             originArr = generateArrayRandom(rand.Next(20, 70), 1, 70);
@@ -397,6 +399,11 @@ namespace sorter
             buff = e.Graphics;
             buff.Graphics.FillRectangle(sb, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
             */
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
