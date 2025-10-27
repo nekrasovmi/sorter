@@ -169,29 +169,212 @@ namespace sorter
             }*/
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BubbleSort(int[] Array, SortDirection direction)
         {
-            if (AscendingRadioButton.Checked)
-            {
-                dir = SortDirection.Ascending;                
-            }
-            if (DescendingRadioButton.Checked)
-            {
-                dir = SortDirection.Descending;
-            }
-
-            timer.Start();
-            
-                /////Сортировка пузырем
-                //SortDirection dir = SortDirection.Ascending;
-                //Console.WriteLine(dir);
-            buff.Graphics.Clear(Color.Black);
-            int n = originArr.Length;
-            
-            for (int i = 0; i < n; i++)
+            //iterations = 0;
+            for (int i = 0; i < Array.Length; i++)
             {
                 iterations++;
-                for (int j = 0; j < n-i-1; j++)
+                for (int j = 0; j < Array.Length - i - 1; j++)
+                {
+                    bool needSwap = dir == SortDirection.Ascending
+                        ? Array[j] > Array[j + 1]
+                        : Array[j] < Array[j + 1];
+
+                    //if (originArr[j] > originArr[j+1])
+
+                    if (needSwap)
+                    {
+                        int temp = Array[j];
+                        Array[j] = Array[j + 1];
+                        Array[j + 1] = temp;
+                        //SwapElements(originArr, i, i + 1);
+                        drawArray(Array);
+                        buff.Render();
+                        Thread.Sleep(1);
+                        swaps++;
+                    }
+                }
+            }
+        }
+
+        private void ShakerSort(int[] Array, SortDirection direction)
+        {
+            bool swapped;
+            int start = 0;
+            int end = Array.Length - 1;
+
+            do
+            {
+                iterations++;
+                swapped = false;
+                for (int i = start; i < end; i++)
+                {
+                    bool needSwap = dir == SortDirection.Ascending
+                        ? Array[i] > Array[i + 1]
+                        : Array[i] < Array[i + 1];
+
+                    //if (Array[i] > Array[i + 1])
+                    if (needSwap)
+                    {
+                        //SwapElements(originArr, i, i + 1);
+                        int temp = originArr[i];
+                        originArr[i] = originArr[i + 1];
+                        originArr[i + 1] = temp;
+                        swapped = true;
+                        drawArray(originArr);
+                        buff.Render();
+                        Thread.Sleep(1);
+                        swaps++;
+                    }
+                }
+                end--;
+
+                swapped = false;
+                for (int i = end; i >= start; i--)
+                {
+                    bool needSwap = dir == SortDirection.Ascending
+                        ? Array[i] > Array[i + 1]
+                        : Array[i] < Array[i + 1];
+                    //if (Array[i] > Array[i + 1])
+                    if (needSwap)
+                    {
+                        //SwapElements(originArr, i, i + 1);
+                        int temp = originArr[i];
+                        originArr[i] = originArr[i + 1];
+                        originArr[i + 1] = temp;
+                        swapped = true;
+                        drawArray(originArr);
+                        buff.Render();
+                        Thread.Sleep(1);
+                        swaps++;
+                    }
+                }
+                start++;
+
+            } while (swapped && start <= end);
+        }
+
+        private void InsertionSort(int[] Array, SortDirection direction)
+        {
+            for (int i = 1; i < Array.Length; i++)
+            {
+                int current = Array[i];
+                int j = i - 1;
+                
+
+                //while (j >= 0 && Array[j] > current)
+                while (j >= 0)
+                {
+                    bool needSwap = dir == SortDirection.Ascending
+                        ? Array[i] > current
+                        : Array[i] < current;
+
+                    if (needSwap)
+                    {
+                        Array[j + 1] = Array[j];
+                        j--;
+                        drawArray(Array);
+                        buff.Render();
+                        Thread.Sleep(1);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                Array[j + 1] = current;
+                drawArray(originArr);
+                buff.Render();
+                Thread.Sleep(1);
+            }
+        }
+
+        private void BogoSort(int[] Array, SortDirection direction)
+        {
+            //int iterations = 0;
+
+            while (!ArrayIsSorted(Array))
+            {
+
+                Shuffle(Array);
+                iterations++;
+                drawArray(originArr);
+                buff.Render();
+                Thread.Sleep(1);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            buff.Graphics.Clear(Color.Black);
+            iterations = 0;
+            swaps = 0;
+            timer.Reset();
+
+            if (bubbleSortRadioButton.Checked)
+            {
+                timer.Start();
+                BubbleSort(originArr, dir);                
+                timer.Stop();
+                //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+                //richTextBox1.AppendText("\nКоличество итераций: " + iterations);
+                //richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
+                //richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
+            }
+
+            if (ShakerSortRadioButton.Checked)
+            {
+                timer.Start();
+                ShakerSort(originArr,dir);
+                timer.Stop();
+                //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+                //richTextBox1.AppendText("\nКоличество итераций: " + iterations);
+                //richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
+                //richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
+            }
+
+            if (InsertSortRadioButton.Checked)
+            {
+                timer.Start();
+                InsertionSort(originArr, dir);
+                timer.Stop();
+                //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+                //richTextBox1.AppendText("\nКоличество итераций: " + iterations);
+                //richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
+                //richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
+            }
+
+                if (BogoSortRadioButton.Checked)
+            {
+                timer.Start();
+                BogoSort(originArr, dir);
+                timer.Stop();
+                //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+                //richTextBox1.AppendText("\nКоличество попыток: " + iterations);
+                //richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
+                //richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
+            }
+            richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+            richTextBox1.AppendText("\nКоличество итераций: " + iterations);
+            richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
+            richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
+
+
+            //timer.Start();
+
+            /////Сортировка пузырем
+            //SortDirection dir = SortDirection.Ascending;
+            //Console.WriteLine(dir);
+            //buff.Graphics.Clear(Color.Black);
+
+            //bubbleSort(originArr, dir);
+            //int n = originArr.Length;
+
+            /*for (int i = 0; i < originArr.Length; i++)
+            {
+                iterations++;
+                for (int j = 0; j < originArr.Length - i-1; j++)
                 {
                     bool needSwap = dir == SortDirection.Ascending
                         ? originArr[j] > originArr[j + 1]
@@ -204,20 +387,21 @@ namespace sorter
                         int temp = originArr[j];
                         originArr[j] = originArr[j + 1];
                         originArr[j+1] = temp;
+                        //SwapElements(originArr, i, i + 1);
                         drawArray(originArr);
                         buff.Render();
                         Thread.Sleep(1);
                         swaps++;
                     }                    
                 }
-                
-            }
-            timer.Stop();
-            richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
-            richTextBox1.AppendText("\nКоличество итераций: " + iterations);
-            richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
-            richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
-            
+
+            }*/
+            //timer.Stop();
+            //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+            //richTextBox1.AppendText("\nКоличество итераций: " + iterations);
+            //richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
+            //richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
+
             //////Сортировка шейкером
             /*
             buff.Graphics.Clear(Color.Black);
@@ -225,7 +409,7 @@ namespace sorter
             //int n = test.Length;
             int n = originArr.Length;
             int start = 0;
-            int end = n -1 ;
+            int end = n - 1 ;
             bool swapped;
 
             do
@@ -264,7 +448,7 @@ namespace sorter
                             drawArray(originArr);
                             buff.Render();
                             Thread.Sleep(1);
-                            
+
                         }
                     }
                 start++;
@@ -300,7 +484,7 @@ namespace sorter
                 Thread.Sleep(1);
             }
             //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
-            
+
 
             /////////Сортировка Бого
             buff.Graphics.Clear(Color.Black);
@@ -323,7 +507,12 @@ namespace sorter
         {
             for(int i = 0; i < array.Length - 1; i++)
             {
-                if(array[i] > array[i + 1])
+                bool needSwap = dir == SortDirection.Ascending
+                        ? array[i] > array[i + 1]
+                        : array[i] < array[i + 1];
+
+                //if (array[i] > array[i + 1])
+                if (needSwap)
                 {
                     return false;
                 }
@@ -420,12 +609,14 @@ namespace sorter
 
         private void radioButton12_CheckedChanged(object sender, EventArgs e)
         {            
-            pictureBox2.Image = Properties.Resources.Ascending;            
+            pictureBox2.Image = Properties.Resources.Ascending;
+            dir = SortDirection.Ascending;
         }
 
         private void radioButton11_CheckedChanged(object sender, EventArgs e)
         {
             pictureBox2.Image = Properties.Resources.Descending;
+            dir = SortDirection.Descending;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

@@ -44,7 +44,7 @@ namespace sorter
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.DescendingRadioButton = new System.Windows.Forms.RadioButton();
             this.AscendingRadioButton = new System.Windows.Forms.RadioButton();
-            this.button1 = new System.Windows.Forms.Button();
+            this.start_sort_button = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button5 = new System.Windows.Forms.Button();
@@ -82,7 +82,7 @@ namespace sorter
             // pictureBox3
             // 
             this.pictureBox3.Location = new System.Drawing.Point(191, 44);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(64, 59);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -222,7 +222,7 @@ namespace sorter
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(191, 16);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(64, 59);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -255,17 +255,17 @@ namespace sorter
             this.AscendingRadioButton.UseVisualStyleBackColor = true;
             this.AscendingRadioButton.CheckedChanged += new System.EventHandler(this.radioButton12_CheckedChanged);
             // 
-            // button1
+            // start_sort_button
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(20, 432);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 36);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Сортировка";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.start_sort_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.start_sort_button.Location = new System.Drawing.Point(20, 432);
+            this.start_sort_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.start_sort_button.Name = "start_sort_button";
+            this.start_sort_button.Size = new System.Drawing.Size(147, 36);
+            this.start_sort_button.TabIndex = 3;
+            this.start_sort_button.Text = "Сортировка";
+            this.start_sort_button.UseVisualStyleBackColor = true;
+            this.start_sort_button.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox1
             // 
@@ -371,7 +371,7 @@ namespace sorter
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.start_sort_button);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -407,7 +407,7 @@ namespace sorter
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.RadioButton DescendingRadioButton;
         private System.Windows.Forms.RadioButton AscendingRadioButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button start_sort_button;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
