@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace sorter
 {
-    public partial class Form3 : Form
+    public partial class HandleInputForm : Form
     {
         public static int count = 0;
         public int[] arr;
@@ -19,7 +19,7 @@ namespace sorter
         public bool endMassive = false;
         DataTable dt = new DataTable();
         //public Array myarr = new Array;
-        public Form3()
+        public HandleInputForm()
         {
             InitializeComponent();
             //button3.Visible = false;

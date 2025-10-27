@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace sorter
 {
@@ -29,14 +30,17 @@ namespace sorter
     {
         //private MenuForm menuForm;
         //public int[] myarray;
+        Stopwatch timer = new Stopwatch();
         static public minmaxcount test;
         private static Random rand = new Random();
         private int[] originArr;
-        Form2 pForm = new Form2();
-        Form3 hIForm = new Form3();
+        RandomInputForm pForm = new RandomInputForm();
+        HandleInputForm hIForm = new HandleInputForm();
         //int[] myArray;
         private BufferedGraphics buff;
         SortDirection dir = SortDirection.Ascending;
+        int iterations = 0;
+        int swaps = 0;
         //MenuForm e;
         //BufferedGraphics buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
         
@@ -140,7 +144,7 @@ namespace sorter
         private void drawArray(int[] array)
         {
             Pen pen = new Pen(Color.OrangeRed);
-            SolidBrush sb = new SolidBrush(pen.Color);
+            SolidBrush brush = new SolidBrush(pen.Color);
             //Graphics graphics = pictureBox1.CreateGraphics();
             //graphics.Clear(Color.Black);
             buff.Graphics.Clear(Color.Black);
@@ -149,8 +153,8 @@ namespace sorter
 
             for (int i = 0; i < array.Length; i++)
             {
-                //graphics.FillRectangle(sb, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
-                buff.Graphics.FillRectangle(sb, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
+                //graphics.FillRectangle(brush, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
+                buff.Graphics.FillRectangle(brush, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
                 //buff.Render();
             }
             
@@ -167,15 +171,16 @@ namespace sorter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (radioButton12.Checked)
+            if (AscendingRadioButton.Checked)
             {
-                dir = SortDirection.Ascending;
-                //SortDirection dir = SortDirection.Ascending;
+                dir = SortDirection.Ascending;                
             }
-            if (radioButton11.Checked)
+            if (DescendingRadioButton.Checked)
             {
                 dir = SortDirection.Descending;
             }
+
+            timer.Start();
             
                 /////Сортировка пузырем
                 //SortDirection dir = SortDirection.Ascending;
@@ -185,6 +190,7 @@ namespace sorter
             
             for (int i = 0; i < n; i++)
             {
+                iterations++;
                 for (int j = 0; j < n-i-1; j++)
                 {
                     bool needSwap = dir == SortDirection.Ascending
@@ -200,13 +206,18 @@ namespace sorter
                         originArr[j+1] = temp;
                         drawArray(originArr);
                         buff.Render();
-                        Thread.Sleep(1);                        
+                        Thread.Sleep(1);
+                        swaps++;
                     }                    
-                }                
-            }            
+                }
+                
+            }
+            timer.Stop();
             richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+            richTextBox1.AppendText("\nКоличество итераций: " + iterations);
+            richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
+            richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
             
-
             //////Сортировка шейкером
             /*
             buff.Graphics.Clear(Color.Black);
@@ -338,7 +349,7 @@ namespace sorter
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (radioButton8.Checked){
+            if (HandleInputRadioButton.Checked){
                 hIForm.Owner = this;
                 hIForm.ShowDialog();
                 originArr = hIForm.GetArray();
@@ -346,7 +357,7 @@ namespace sorter
                 drawArray(originArr);
                 buff.Render();
             }
-            if (radioButton7.Checked)
+            if (RandomInputRadioButton.Checked)
             {
                 pForm.Owner = this;
                 pForm.ShowDialog();
@@ -355,7 +366,7 @@ namespace sorter
                 drawArray(originArr);
                 buff.Render();
             }
-            if (radioButton6.Checked)
+            if (FileInputRadioButton.Checked)
             {
                 openFileDialog1.Filter = "TXT файлы (*.txt)|*.txt|CSV файлы (*.csv)|*.csv";
                 openFileDialog1.FileName = "";

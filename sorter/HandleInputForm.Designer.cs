@@ -1,7 +1,7 @@
 ﻿
 namespace sorter
 {
-    partial class Form3
+    partial class HandleInputForm
     {
         /// <summary>
         /// Required designer variable.

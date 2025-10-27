@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace sorter
 {
-    public partial class Form2 : Form
+    public partial class RandomInputForm : Form
     {
         //private int[] randomArray;
         private Random rand = new Random();
         //public int min;
         //public mydataset md = new mydataset();
         //Form1 frm1 = new Form1();
-        public Form2()
+        public RandomInputForm()
         {
             InitializeComponent();
         }

@@ -19,7 +19,8 @@ namespace sorter
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new IntegratingForm());            
+            Application.Run(new SortingForm());
+            //Application.Run(new IntegratingForm());            
         }
     }
 }

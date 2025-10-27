@@ -1,7 +1,7 @@
 ﻿
 namespace sorter
 {
-    partial class Form2
+    partial class RandomInputForm
     {
         /// <summary>
         /// Required designer variable.
@@ -121,7 +121,7 @@ namespace sorter
             this.numericUpDown3.Size = new System.Drawing.Size(120, 22);
             this.numericUpDown3.TabIndex = 11;
             // 
-            // Form2
+            // RandomInputForm
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -137,7 +137,7 @@ namespace sorter
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form2";
+            this.Name = "RandomInputForm";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();

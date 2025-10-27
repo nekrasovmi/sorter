@@ -31,21 +31,20 @@ namespace sorter
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.BogoSortRadioButton = new System.Windows.Forms.RadioButton();
+            this.InsertSortRadioButton = new System.Windows.Forms.RadioButton();
+            this.ShakerSortRadioButton = new System.Windows.Forms.RadioButton();
+            this.bubbleSortRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.FileInputRadioButton = new System.Windows.Forms.RadioButton();
+            this.RandomInputRadioButton = new System.Windows.Forms.RadioButton();
+            this.HandleInputRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
-            this.radioButton12 = new System.Windows.Forms.RadioButton();
+            this.DescendingRadioButton = new System.Windows.Forms.RadioButton();
+            this.AscendingRadioButton = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
-            this.eventLog1 = new System.Diagnostics.EventLog();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.button5 = new System.Windows.Forms.Button();
@@ -60,225 +59,222 @@ namespace sorter
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.pictureBox3);
-            this.groupBox1.Controls.Add(this.radioButton4);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.BogoSortRadioButton);
+            this.groupBox1.Controls.Add(this.InsertSortRadioButton);
+            this.groupBox1.Controls.Add(this.ShakerSortRadioButton);
+            this.groupBox1.Controls.Add(this.bubbleSortRadioButton);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(15, 74);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(20, 91);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(202, 112);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(269, 138);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Алгоритм";
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(143, 36);
+            this.pictureBox3.Location = new System.Drawing.Point(191, 44);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox3.Size = new System.Drawing.Size(64, 59);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 13;
             this.pictureBox3.TabStop = false;
             // 
-            // radioButton4
+            // BogoSortRadioButton
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(4, 83);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(56, 21);
-            this.radioButton4.TabIndex = 2;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Бого";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            this.BogoSortRadioButton.AutoSize = true;
+            this.BogoSortRadioButton.Location = new System.Drawing.Point(5, 102);
+            this.BogoSortRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BogoSortRadioButton.Name = "BogoSortRadioButton";
+            this.BogoSortRadioButton.Size = new System.Drawing.Size(70, 24);
+            this.BogoSortRadioButton.TabIndex = 2;
+            this.BogoSortRadioButton.TabStop = true;
+            this.BogoSortRadioButton.Text = "Бого";
+            this.BogoSortRadioButton.UseVisualStyleBackColor = true;
+            this.BogoSortRadioButton.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
-            // radioButton3
+            // InsertSortRadioButton
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(4, 61);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(79, 21);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Вставка";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.InsertSortRadioButton.AutoSize = true;
+            this.InsertSortRadioButton.Location = new System.Drawing.Point(5, 75);
+            this.InsertSortRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.InsertSortRadioButton.Name = "InsertSortRadioButton";
+            this.InsertSortRadioButton.Size = new System.Drawing.Size(100, 24);
+            this.InsertSortRadioButton.TabIndex = 2;
+            this.InsertSortRadioButton.TabStop = true;
+            this.InsertSortRadioButton.Text = "Вставка";
+            this.InsertSortRadioButton.UseVisualStyleBackColor = true;
+            this.InsertSortRadioButton.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
             // 
-            // radioButton2
+            // ShakerSortRadioButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(4, 39);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(76, 21);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Шейкер";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.ShakerSortRadioButton.AutoSize = true;
+            this.ShakerSortRadioButton.Location = new System.Drawing.Point(5, 48);
+            this.ShakerSortRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ShakerSortRadioButton.Name = "ShakerSortRadioButton";
+            this.ShakerSortRadioButton.Size = new System.Drawing.Size(93, 24);
+            this.ShakerSortRadioButton.TabIndex = 2;
+            this.ShakerSortRadioButton.TabStop = true;
+            this.ShakerSortRadioButton.Text = "Шейкер";
+            this.ShakerSortRadioButton.UseVisualStyleBackColor = true;
+            this.ShakerSortRadioButton.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // radioButton1
+            // bubbleSortRadioButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(4, 17);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(83, 21);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Пузырек";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.bubbleSortRadioButton.AutoSize = true;
+            this.bubbleSortRadioButton.Location = new System.Drawing.Point(5, 21);
+            this.bubbleSortRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.bubbleSortRadioButton.Name = "bubbleSortRadioButton";
+            this.bubbleSortRadioButton.Size = new System.Drawing.Size(101, 24);
+            this.bubbleSortRadioButton.TabIndex = 1;
+            this.bubbleSortRadioButton.TabStop = true;
+            this.bubbleSortRadioButton.Text = "Пузырек";
+            this.bubbleSortRadioButton.UseVisualStyleBackColor = true;
+            this.bubbleSortRadioButton.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.radioButton6);
-            this.groupBox2.Controls.Add(this.radioButton7);
-            this.groupBox2.Controls.Add(this.radioButton8);
+            this.groupBox2.Controls.Add(this.FileInputRadioButton);
+            this.groupBox2.Controls.Add(this.RandomInputRadioButton);
+            this.groupBox2.Controls.Add(this.HandleInputRadioButton);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(15, 262);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Location = new System.Drawing.Point(20, 322);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(202, 85);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(269, 105);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Метод ввода";
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(110, 35);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Location = new System.Drawing.Point(147, 43);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(81, 24);
+            this.button4.Size = new System.Drawing.Size(108, 30);
             this.button4.TabIndex = 5;
             this.button4.Text = "Ввод";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // radioButton6
+            // FileInputRadioButton
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(4, 61);
-            this.radioButton6.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(63, 21);
-            this.radioButton6.TabIndex = 2;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Файл";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.FileInputRadioButton.AutoSize = true;
+            this.FileInputRadioButton.Location = new System.Drawing.Point(5, 75);
+            this.FileInputRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FileInputRadioButton.Name = "FileInputRadioButton";
+            this.FileInputRadioButton.Size = new System.Drawing.Size(76, 24);
+            this.FileInputRadioButton.TabIndex = 2;
+            this.FileInputRadioButton.TabStop = true;
+            this.FileInputRadioButton.Text = "Файл";
+            this.FileInputRadioButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton7
+            // RandomInputRadioButton
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(4, 39);
-            this.radioButton7.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(100, 21);
-            this.radioButton7.TabIndex = 2;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Случайный";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.RandomInputRadioButton.AutoSize = true;
+            this.RandomInputRadioButton.Location = new System.Drawing.Point(5, 48);
+            this.RandomInputRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RandomInputRadioButton.Name = "RandomInputRadioButton";
+            this.RandomInputRadioButton.Size = new System.Drawing.Size(122, 24);
+            this.RandomInputRadioButton.TabIndex = 2;
+            this.RandomInputRadioButton.TabStop = true;
+            this.RandomInputRadioButton.Text = "Случайный";
+            this.RandomInputRadioButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton8
+            // HandleInputRadioButton
             // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(4, 17);
-            this.radioButton8.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(74, 21);
-            this.radioButton8.TabIndex = 1;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Ручной";
-            this.radioButton8.UseVisualStyleBackColor = true;
+            this.HandleInputRadioButton.AutoSize = true;
+            this.HandleInputRadioButton.Location = new System.Drawing.Point(5, 21);
+            this.HandleInputRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.HandleInputRadioButton.Name = "HandleInputRadioButton";
+            this.HandleInputRadioButton.Size = new System.Drawing.Size(89, 24);
+            this.HandleInputRadioButton.TabIndex = 1;
+            this.HandleInputRadioButton.TabStop = true;
+            this.HandleInputRadioButton.Text = "Ручной";
+            this.HandleInputRadioButton.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.pictureBox2);
-            this.groupBox3.Controls.Add(this.radioButton11);
-            this.groupBox3.Controls.Add(this.radioButton12);
+            this.groupBox3.Controls.Add(this.DescendingRadioButton);
+            this.groupBox3.Controls.Add(this.AscendingRadioButton);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox3.Location = new System.Drawing.Point(15, 190);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Location = new System.Drawing.Point(20, 234);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(202, 68);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(269, 84);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Направление";
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(143, 13);
+            this.pictureBox2.Location = new System.Drawing.Point(191, 16);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox2.Size = new System.Drawing.Size(64, 59);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
-            // radioButton11
+            // DescendingRadioButton
             // 
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.Location = new System.Drawing.Point(4, 39);
-            this.radioButton11.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(92, 21);
-            this.radioButton11.TabIndex = 2;
-            this.radioButton11.TabStop = true;
-            this.radioButton11.Text = "Убывание";
-            this.radioButton11.UseVisualStyleBackColor = true;
-            this.radioButton11.CheckedChanged += new System.EventHandler(this.radioButton11_CheckedChanged);
+            this.DescendingRadioButton.AutoSize = true;
+            this.DescendingRadioButton.Location = new System.Drawing.Point(5, 48);
+            this.DescendingRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DescendingRadioButton.Name = "DescendingRadioButton";
+            this.DescendingRadioButton.Size = new System.Drawing.Size(113, 24);
+            this.DescendingRadioButton.TabIndex = 2;
+            this.DescendingRadioButton.TabStop = true;
+            this.DescendingRadioButton.Text = "Убывание";
+            this.DescendingRadioButton.UseVisualStyleBackColor = true;
+            this.DescendingRadioButton.CheckedChanged += new System.EventHandler(this.radioButton11_CheckedChanged);
             // 
-            // radioButton12
+            // AscendingRadioButton
             // 
-            this.radioButton12.AutoSize = true;
-            this.radioButton12.Location = new System.Drawing.Point(4, 17);
-            this.radioButton12.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(112, 21);
-            this.radioButton12.TabIndex = 1;
-            this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "Возрастание";
-            this.radioButton12.UseVisualStyleBackColor = true;
-            this.radioButton12.CheckedChanged += new System.EventHandler(this.radioButton12_CheckedChanged);
+            this.AscendingRadioButton.AutoSize = true;
+            this.AscendingRadioButton.Location = new System.Drawing.Point(5, 21);
+            this.AscendingRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.AscendingRadioButton.Name = "AscendingRadioButton";
+            this.AscendingRadioButton.Size = new System.Drawing.Size(140, 24);
+            this.AscendingRadioButton.TabIndex = 1;
+            this.AscendingRadioButton.TabStop = true;
+            this.AscendingRadioButton.Text = "Возрастание";
+            this.AscendingRadioButton.UseVisualStyleBackColor = true;
+            this.AscendingRadioButton.CheckedChanged += new System.EventHandler(this.radioButton12_CheckedChanged);
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(15, 351);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(20, 432);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 29);
+            this.button1.Size = new System.Drawing.Size(147, 36);
             this.button1.TabIndex = 3;
             this.button1.Text = "Сортировка";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // eventLog1
-            // 
-            this.eventLog1.SynchronizingObject = this;
-            // 
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox1.Location = new System.Drawing.Point(15, 384);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.richTextBox1.Location = new System.Drawing.Point(20, 473);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(814, 88);
+            this.richTextBox1.Size = new System.Drawing.Size(1084, 107);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "";
             // 
@@ -288,10 +284,10 @@ namespace sorter
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(773, 351);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Location = new System.Drawing.Point(1031, 432);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(56, 19);
+            this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 5;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
@@ -301,9 +297,10 @@ namespace sorter
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(300, 9);
+            this.label1.Location = new System.Drawing.Point(400, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 20);
+            this.label1.Size = new System.Drawing.Size(234, 25);
             this.label1.TabIndex = 7;
             this.label1.Text = "Алгоритмы сортировки";
             // 
@@ -311,37 +308,40 @@ namespace sorter
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(71, 52);
+            this.label4.Location = new System.Drawing.Point(95, 64);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 20);
+            this.label4.Size = new System.Drawing.Size(128, 25);
             this.label4.TabIndex = 8;
             this.label4.Text = "Параметры:";
             // 
             // VerticalLine
             // 
             this.VerticalLine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.VerticalLine.Location = new System.Drawing.Point(222, 46);
+            this.VerticalLine.Location = new System.Drawing.Point(296, 57);
+            this.VerticalLine.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.VerticalLine.Name = "VerticalLine";
-            this.VerticalLine.Size = new System.Drawing.Size(3, 301);
+            this.VerticalLine.Size = new System.Drawing.Size(4, 370);
             this.VerticalLine.TabIndex = 9;
             this.VerticalLine.Text = "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 29);
+            this.label5.Location = new System.Drawing.Point(16, 36);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(817, 13);
+            this.label5.Size = new System.Drawing.Size(1088, 17);
             this.label5.TabIndex = 11;
             this.label5.Text = "_________________________________________________________________________________" +
     "______________________________________________________";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(230, 52);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(307, 64);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(599, 292);
+            this.pictureBox1.Size = new System.Drawing.Size(799, 359);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
@@ -349,10 +349,10 @@ namespace sorter
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(15, 6);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Location = new System.Drawing.Point(20, 7);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 29);
+            this.button2.Size = new System.Drawing.Size(147, 36);
             this.button2.TabIndex = 12;
             this.button2.Text = "Назад";
             this.button2.UseVisualStyleBackColor = true;
@@ -360,9 +360,9 @@ namespace sorter
             // 
             // SortingForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 482);
+            this.ClientSize = new System.Drawing.Size(1119, 593);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.VerticalLine);
@@ -375,7 +375,7 @@ namespace sorter
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SortingForm";
             this.Text = "Сортировка";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -387,7 +387,6 @@ namespace sorter
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -397,19 +396,18 @@ namespace sorter
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton BogoSortRadioButton;
+        private System.Windows.Forms.RadioButton InsertSortRadioButton;
+        private System.Windows.Forms.RadioButton ShakerSortRadioButton;
+        private System.Windows.Forms.RadioButton bubbleSortRadioButton;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.RadioButton FileInputRadioButton;
+        private System.Windows.Forms.RadioButton RandomInputRadioButton;
+        private System.Windows.Forms.RadioButton HandleInputRadioButton;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioButton11;
-        private System.Windows.Forms.RadioButton radioButton12;
+        private System.Windows.Forms.RadioButton DescendingRadioButton;
+        private System.Windows.Forms.RadioButton AscendingRadioButton;
         private System.Windows.Forms.Button button1;
-        private System.Diagnostics.EventLog eventLog1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
