@@ -33,7 +33,7 @@ namespace sorter
         Stopwatch timer = new Stopwatch();
         static public minmaxcount test;
         private static Random rand = new Random();
-        private int[] originArr;
+        public int[] originArr;
         RandomInputForm pForm = new RandomInputForm();
         HandleInputForm hIForm = new HandleInputForm();
         //int[] myArray;
@@ -43,7 +43,10 @@ namespace sorter
         int swaps = 0;
         //MenuForm e;
         //BufferedGraphics buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
-        
+        public void SetArray()
+        {
+
+        }
 
         //sortedMethods sm = new sortedMethods();
         
@@ -53,6 +56,8 @@ namespace sorter
             Icon = Properties.Resources.sortingIco;
             this.DoubleBuffered = true;
             buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
+            buff.Graphics.Clear(Color.Black);
+            buff.Render();
         }
 
         private static int[] generateArrayRandom(int size, int minValue, int maxValue)
@@ -143,30 +148,33 @@ namespace sorter
 
         private void drawArray(int[] array)
         {
-            Pen pen = new Pen(Color.OrangeRed);
-            SolidBrush brush = new SolidBrush(pen.Color);
-            //Graphics graphics = pictureBox1.CreateGraphics();
-            //graphics.Clear(Color.Black);
-            buff.Graphics.Clear(Color.Black);
-            int deltaW = pictureBox1.Width / array.Length;
-            int deltaH = pictureBox1.Height / array.Max();
+            if (array.Length != 0) {
+                //Console.WriteLine(array);
+                Pen pen = new Pen(Color.OrangeRed);
+                SolidBrush brush = new SolidBrush(pen.Color);
+                //Graphics graphics = pictureBox1.CreateGraphics();
+                //graphics.Clear(Color.Black);
+                buff.Graphics.Clear(Color.Black);
+                int deltaW = pictureBox1.Width / array.Length;
+                int deltaH = pictureBox1.Height / array.Max();
 
-            for (int i = 0; i < array.Length; i++)
-            {
-                //graphics.FillRectangle(brush, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
-                buff.Graphics.FillRectangle(brush, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
-                //buff.Render();
+                for (int i = 0; i < array.Length; i++)
+                {
+                    //graphics.FillRectangle(brush, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
+                    buff.Graphics.FillRectangle(brush, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
+                    //buff.Render();
+                }
+
+                /*pen = new Pen(Color.DarkGreen);
+                for (int i = 0; i < pictureBox1.Width; i += deltaW)
+                {
+                    graphics.DrawLine(pen, i, 0, i, pictureBox1.Width);
+                }
+                for (int i = 0; i < pictureBox1.Width; i += deltaH)
+                {
+                    //graphics.DrawLine(pen, 0, pictureBox1.Height - i, pictureBox1.Width, pictureBox1.Height - i);
+                }*/
             }
-            
-            /*pen = new Pen(Color.DarkGreen);
-            for (int i = 0; i < pictureBox1.Width; i += deltaW)
-            {
-                graphics.DrawLine(pen, i, 0, i, pictureBox1.Width);
-            }
-            for (int i = 0; i < pictureBox1.Width; i += deltaH)
-            {
-                //graphics.DrawLine(pen, 0, pictureBox1.Height - i, pictureBox1.Width, pictureBox1.Height - i);
-            }*/
         }
 
         private void BubbleSort(int[] Array, SortDirection direction)
@@ -259,29 +267,34 @@ namespace sorter
         {
             for (int i = 1; i < Array.Length; i++)
             {
+                iterations++;
                 int current = Array[i];
                 int j = i - 1;
-                
 
-                //while (j >= 0 && Array[j] > current)
-                while (j >= 0)
+                if (direction == SortDirection.Ascending)
                 {
-                    bool needSwap = dir == SortDirection.Ascending
-                        ? Array[i] > current
-                        : Array[i] < current;
-
-                    if (needSwap)
+                    while (j >= 0 && Array[j] > current)
                     {
                         Array[j + 1] = Array[j];
                         j--;
+                        swaps++;
                         drawArray(Array);
                         buff.Render();
                         Thread.Sleep(1);
+
                     }
-                    else
+                }
+                else
+                {
+                    while (j >= 0 && Array[j] < current)
                     {
-                        break;
-                    }
+                        Array[j + 1] = Array[j];
+                        j--;
+                        swaps++;
+                        drawArray(Array);
+                        buff.Render();
+                        Thread.Sleep(1);
+                    }                    
                 }
                 Array[j + 1] = current;
                 drawArray(originArr);
@@ -307,135 +320,116 @@ namespace sorter
 
         private void button1_Click(object sender, EventArgs e)
         {
-            buff.Graphics.Clear(Color.Black);
-            iterations = 0;
-            swaps = 0;
-            timer.Reset();
+            if (originArr.Length != 0 && originArr !=null) {
+                buff.Graphics.Clear(Color.Black);
+                iterations = 0;
+                swaps = 0;
+                timer.Reset();
 
-            if (bubbleSortRadioButton.Checked)
-            {
-                timer.Start();
-                BubbleSort(originArr, dir);                
-                timer.Stop();
-                //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
-                //richTextBox1.AppendText("\nКоличество итераций: " + iterations);
-                //richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
-                //richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
-            }
+                if (bubbleSortRadioButton.Checked)
+                {
+                    timer.Start();
+                    BubbleSort(originArr, dir);
+                    timer.Stop();
+                    //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+                    //richTextBox1.AppendText("\nКоличество итераций: " + iterations);
+                    //richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
+                    //richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
+                }
 
-            if (ShakerSortRadioButton.Checked)
-            {
-                timer.Start();
-                ShakerSort(originArr,dir);
-                timer.Stop();
-                //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
-                //richTextBox1.AppendText("\nКоличество итераций: " + iterations);
-                //richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
-                //richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
-            }
+                if (ShakerSortRadioButton.Checked)
+                {
+                    timer.Start();
+                    ShakerSort(originArr, dir);
+                    timer.Stop();
+                    //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+                    //richTextBox1.AppendText("\nКоличество итераций: " + iterations);
+                    //richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
+                    //richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
+                }
 
-            if (InsertSortRadioButton.Checked)
-            {
-                timer.Start();
-                InsertionSort(originArr, dir);
-                timer.Stop();
-                //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
-                //richTextBox1.AppendText("\nКоличество итераций: " + iterations);
-                //richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
-                //richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
-            }
+                if (InsertSortRadioButton.Checked)
+                {
+                    timer.Start();
+                    InsertionSort(originArr, dir);
+                    timer.Stop();
+                    //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+                    //richTextBox1.AppendText("\nКоличество итераций: " + iterations);
+                    //richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
+                    //richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
+                }
 
                 if (BogoSortRadioButton.Checked)
-            {
-                timer.Start();
-                BogoSort(originArr, dir);
-                timer.Stop();
+                {
+                    timer.Start();
+                    BogoSort(originArr, dir);
+                    timer.Stop();
+                    //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+                    //richTextBox1.AppendText("\nКоличество попыток: " + iterations);
+                    //richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
+                    //richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
+                }
+                richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+                richTextBox1.AppendText("\nКоличество итераций: " + iterations);
+                richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
+                richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
+
+
+                //timer.Start();
+
+                /////Сортировка пузырем
+                //SortDirection dir = SortDirection.Ascending;
+                //Console.WriteLine(dir);
+                //buff.Graphics.Clear(Color.Black);
+
+                //bubbleSort(originArr, dir);
+                //int n = originArr.Length;
+
+                /*for (int i = 0; i < originArr.Length; i++)
+                {
+                    iterations++;
+                    for (int j = 0; j < originArr.Length - i-1; j++)
+                    {
+                        bool needSwap = dir == SortDirection.Ascending
+                            ? originArr[j] > originArr[j + 1]
+                            : originArr[j] < originArr[j + 1];
+
+                        //if (originArr[j] > originArr[j+1])
+
+                        if (needSwap)
+                        {
+                            int temp = originArr[j];
+                            originArr[j] = originArr[j + 1];
+                            originArr[j+1] = temp;
+                            //SwapElements(originArr, i, i + 1);
+                            drawArray(originArr);
+                            buff.Render();
+                            Thread.Sleep(1);
+                            swaps++;
+                        }                    
+                    }
+
+                }*/
+                //timer.Stop();
                 //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
-                //richTextBox1.AppendText("\nКоличество попыток: " + iterations);
+                //richTextBox1.AppendText("\nКоличество итераций: " + iterations);
                 //richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
                 //richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
-            }
-            richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
-            richTextBox1.AppendText("\nКоличество итераций: " + iterations);
-            richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
-            richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
 
+                //////Сортировка шейкером
+                /*
+                buff.Graphics.Clear(Color.Black);
+                //int[] test = { 27, 3, 30, 8 };
+                //int n = test.Length;
+                int n = originArr.Length;
+                int start = 0;
+                int end = n - 1 ;
+                bool swapped;
 
-            //timer.Start();
-
-            /////Сортировка пузырем
-            //SortDirection dir = SortDirection.Ascending;
-            //Console.WriteLine(dir);
-            //buff.Graphics.Clear(Color.Black);
-
-            //bubbleSort(originArr, dir);
-            //int n = originArr.Length;
-
-            /*for (int i = 0; i < originArr.Length; i++)
-            {
-                iterations++;
-                for (int j = 0; j < originArr.Length - i-1; j++)
+                do
                 {
-                    bool needSwap = dir == SortDirection.Ascending
-                        ? originArr[j] > originArr[j + 1]
-                        : originArr[j] < originArr[j + 1];
-
-                    //if (originArr[j] > originArr[j+1])
-
-                    if (needSwap)
-                    {
-                        int temp = originArr[j];
-                        originArr[j] = originArr[j + 1];
-                        originArr[j+1] = temp;
-                        //SwapElements(originArr, i, i + 1);
-                        drawArray(originArr);
-                        buff.Render();
-                        Thread.Sleep(1);
-                        swaps++;
-                    }                    
-                }
-
-            }*/
-            //timer.Stop();
-            //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
-            //richTextBox1.AppendText("\nКоличество итераций: " + iterations);
-            //richTextBox1.AppendText("\nКоличество перестановок: " + iterations);
-            //richTextBox1.AppendText("\nВремя выполнения: " + timer.ElapsedMilliseconds + " мс");
-
-            //////Сортировка шейкером
-            /*
-            buff.Graphics.Clear(Color.Black);
-            //int[] test = { 27, 3, 30, 8 };
-            //int n = test.Length;
-            int n = originArr.Length;
-            int start = 0;
-            int end = n - 1 ;
-            bool swapped;
-
-            do
-            {
-                swapped = false;
-                for (int i = start; i < end; i++)
-                {
-                    if (originArr[i] > originArr[i + 1])
-                    {
-                        SwapElements(originArr, i, i+1);
-                        //int temp = originArr[i];
-                        //originArr[i] = originArr[i + 1];
-                        //originArr[i + 1] = temp;
-                        swapped = true;
-
-                        //richTextBox1.AppendText("\nswap++\n");
-                        drawArray(originArr);
-                        buff.Render();
-                        Thread.Sleep(1);
-
-                    }
-                }
-                end--;
-
-                swapped = false;
-                for (int i = end; i >= start; i--)
+                    swapped = false;
+                    for (int i = start; i < end; i++)
                     {
                         if (originArr[i] > originArr[i + 1])
                         {
@@ -444,63 +438,89 @@ namespace sorter
                             //originArr[i] = originArr[i + 1];
                             //originArr[i + 1] = temp;
                             swapped = true;
-                            //richTextBox1.AppendText("\nswap--\n");
+
+                            //richTextBox1.AppendText("\nswap++\n");
                             drawArray(originArr);
                             buff.Render();
                             Thread.Sleep(1);
 
                         }
                     }
-                start++;
+                    end--;
 
-            } while (swapped && start <= end);
-            richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
-            */
+                    swapped = false;
+                    for (int i = end; i >= start; i--)
+                        {
+                            if (originArr[i] > originArr[i + 1])
+                            {
+                                SwapElements(originArr, i, i+1);
+                                //int temp = originArr[i];
+                                //originArr[i] = originArr[i + 1];
+                                //originArr[i + 1] = temp;
+                                swapped = true;
+                                //richTextBox1.AppendText("\nswap--\n");
+                                drawArray(originArr);
+                                buff.Render();
+                                Thread.Sleep(1);
 
-            /*
-            /////////Сортировка вставками
-            buff.Graphics.Clear(Color.Black);
-            //int[] test = { 27, 3, 30, 8 };
-            int n = originArr.Length;
-            //int start = 0;
-            //int end = n;
-            //bool swapped;
+                            }
+                        }
+                    start++;
 
-            for (int i = 1; i < n; i++)
-            {
-                int current = originArr[i];
-                int j = i - 1;
-                while (j >= 0 && originArr[j] > current)
+                } while (swapped && start <= end);
+                richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+                */
+
+                /*
+                /////////Сортировка вставками
+                buff.Graphics.Clear(Color.Black);
+                //int[] test = { 27, 3, 30, 8 };
+                int n = originArr.Length;
+                //int start = 0;
+                //int end = n;
+                //bool swapped;
+
+                for (int i = 1; i < n; i++)
                 {
-                    originArr[j + 1] = originArr[j];
-                    j--;
+                    int current = originArr[i];
+                    int j = i - 1;
+                    while (j >= 0 && originArr[j] > current)
+                    {
+                        originArr[j + 1] = originArr[j];
+                        j--;
+                        drawArray(originArr);
+                        buff.Render();
+                        Thread.Sleep(1);
+                    }
+                    originArr[j + 1] = current;
                     drawArray(originArr);
                     buff.Render();
                     Thread.Sleep(1);
                 }
-                originArr[j + 1] = current;
-                drawArray(originArr);
-                buff.Render();
-                Thread.Sleep(1);
+                //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+
+
+                /////////Сортировка Бого
+                buff.Graphics.Clear(Color.Black);
+                int attemps = 0;
+
+                while (!ArrayIsSorted(originArr))
+                {
+
+                    Shuffle(originArr);
+                    attemps++;
+                    drawArray(originArr);
+                    buff.Render();
+                    Thread.Sleep(1);                
+                }
+                richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
+                */
             }
-            //richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
-
-
-            /////////Сортировка Бого
-            buff.Graphics.Clear(Color.Black);
-            int attemps = 0;
-
-            while (!ArrayIsSorted(originArr))
+            else
             {
-
-                Shuffle(originArr);
-                attemps++;
-                drawArray(originArr);
-                buff.Render();
-                Thread.Sleep(1);                
+                MessageBox.Show("ssa");
+                //ShowDialog(MessageBox.Show();
             }
-            richTextBox1.AppendText("\nОтсортированный массив:\n" + string.Join(" ", originArr));
-            */
         }
 
         private bool ArrayIsSorted(int[] array)

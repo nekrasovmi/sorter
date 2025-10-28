@@ -138,7 +138,7 @@ namespace sorter
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "RandomInputForm";
-            this.Text = "Form2";
+            this.Text = "Параметры генерации";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();

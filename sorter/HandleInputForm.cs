@@ -39,6 +39,7 @@ namespace sorter
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             this.Hide();
             /*len = Convert.ToInt32(numericUpDown1.Value);
             label1.Text = "Введите " + item + " элемент массива";
@@ -56,43 +57,7 @@ namespace sorter
             //}
             //Form1.test.myarray = new int[len];
 
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            
-            /*
-            while ()
-            {
-                label1.Text = "Введите " + item + " элемент массива";
-
-                item++;
-                if (item == len)
-                {
-                    
-                    endMassive = true;
-                }
-
-            }
-            /*for (int i = 0; i < len; i++)
-            {
-                label1.Text = "Введите " + item + " элемент массива";
-                arr[i] = Convert.ToInt32(textBox1.Text);
-                //textBox1.Text = null;
-                item++;
-                //textBox1.Text = null;
-            }
-            for (int i = 0; i < len; i++)
-            {
-                Console.WriteLine();
-            } */
-            
-            
-            /*public int[] GetArray()
-            {
-
-            }*/
-        }
+        }      
 
         private void Form3_Load(object sender, EventArgs e)
         {
