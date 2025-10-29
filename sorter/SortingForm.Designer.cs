@@ -29,18 +29,18 @@ namespace sorter
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupRadioButtonAlgorithm = new System.Windows.Forms.GroupBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.BogoSortRadioButton = new System.Windows.Forms.RadioButton();
             this.InsertSortRadioButton = new System.Windows.Forms.RadioButton();
             this.ShakerSortRadioButton = new System.Windows.Forms.RadioButton();
             this.bubbleSortRadioButton = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupRadioBattonInputMethod = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.FileInputRadioButton = new System.Windows.Forms.RadioButton();
             this.RandomInputRadioButton = new System.Windows.Forms.RadioButton();
             this.HandleInputRadioButton = new System.Windows.Forms.RadioButton();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupRadioButtonDirection = new System.Windows.Forms.GroupBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.DescendingRadioButton = new System.Windows.Forms.RadioButton();
             this.AscendingRadioButton = new System.Windows.Forms.RadioButton();
@@ -52,32 +52,32 @@ namespace sorter
             this.label4 = new System.Windows.Forms.Label();
             this.VerticalLine = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.VisualisationBox = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.groupRadioButtonAlgorithm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupRadioBattonInputMethod.SuspendLayout();
+            this.groupRadioButtonDirection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VisualisationBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // groupRadioButtonAlgorithm
             // 
-            this.groupBox1.Controls.Add(this.pictureBox3);
-            this.groupBox1.Controls.Add(this.BogoSortRadioButton);
-            this.groupBox1.Controls.Add(this.InsertSortRadioButton);
-            this.groupBox1.Controls.Add(this.ShakerSortRadioButton);
-            this.groupBox1.Controls.Add(this.bubbleSortRadioButton);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(20, 91);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(269, 138);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Алгоритм";
+            this.groupRadioButtonAlgorithm.Controls.Add(this.pictureBox3);
+            this.groupRadioButtonAlgorithm.Controls.Add(this.BogoSortRadioButton);
+            this.groupRadioButtonAlgorithm.Controls.Add(this.InsertSortRadioButton);
+            this.groupRadioButtonAlgorithm.Controls.Add(this.ShakerSortRadioButton);
+            this.groupRadioButtonAlgorithm.Controls.Add(this.bubbleSortRadioButton);
+            this.groupRadioButtonAlgorithm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupRadioButtonAlgorithm.Location = new System.Drawing.Point(20, 91);
+            this.groupRadioButtonAlgorithm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupRadioButtonAlgorithm.Name = "groupRadioButtonAlgorithm";
+            this.groupRadioButtonAlgorithm.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupRadioButtonAlgorithm.Size = new System.Drawing.Size(269, 138);
+            this.groupRadioButtonAlgorithm.TabIndex = 0;
+            this.groupRadioButtonAlgorithm.TabStop = false;
+            this.groupRadioButtonAlgorithm.Text = "Алгоритм";
             // 
             // pictureBox3
             // 
@@ -141,21 +141,21 @@ namespace sorter
             this.bubbleSortRadioButton.UseVisualStyleBackColor = true;
             this.bubbleSortRadioButton.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // groupBox2
+            // groupRadioBattonInputMethod
             // 
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.FileInputRadioButton);
-            this.groupBox2.Controls.Add(this.RandomInputRadioButton);
-            this.groupBox2.Controls.Add(this.HandleInputRadioButton);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(20, 322);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(269, 105);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Метод ввода";
+            this.groupRadioBattonInputMethod.Controls.Add(this.button4);
+            this.groupRadioBattonInputMethod.Controls.Add(this.FileInputRadioButton);
+            this.groupRadioBattonInputMethod.Controls.Add(this.RandomInputRadioButton);
+            this.groupRadioBattonInputMethod.Controls.Add(this.HandleInputRadioButton);
+            this.groupRadioBattonInputMethod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupRadioBattonInputMethod.Location = new System.Drawing.Point(20, 322);
+            this.groupRadioBattonInputMethod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupRadioBattonInputMethod.Name = "groupRadioBattonInputMethod";
+            this.groupRadioBattonInputMethod.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupRadioBattonInputMethod.Size = new System.Drawing.Size(269, 105);
+            this.groupRadioBattonInputMethod.TabIndex = 1;
+            this.groupRadioBattonInputMethod.TabStop = false;
+            this.groupRadioBattonInputMethod.Text = "Метод ввода";
             // 
             // button4
             // 
@@ -204,20 +204,20 @@ namespace sorter
             this.HandleInputRadioButton.Text = "Ручной";
             this.HandleInputRadioButton.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // groupRadioButtonDirection
             // 
-            this.groupBox3.Controls.Add(this.pictureBox2);
-            this.groupBox3.Controls.Add(this.DescendingRadioButton);
-            this.groupBox3.Controls.Add(this.AscendingRadioButton);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox3.Location = new System.Drawing.Point(20, 234);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(269, 84);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Направление";
+            this.groupRadioButtonDirection.Controls.Add(this.pictureBox2);
+            this.groupRadioButtonDirection.Controls.Add(this.DescendingRadioButton);
+            this.groupRadioButtonDirection.Controls.Add(this.AscendingRadioButton);
+            this.groupRadioButtonDirection.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupRadioButtonDirection.Location = new System.Drawing.Point(20, 234);
+            this.groupRadioButtonDirection.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupRadioButtonDirection.Name = "groupRadioButtonDirection";
+            this.groupRadioButtonDirection.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupRadioButtonDirection.Size = new System.Drawing.Size(269, 84);
+            this.groupRadioButtonDirection.TabIndex = 2;
+            this.groupRadioButtonDirection.TabStop = false;
+            this.groupRadioButtonDirection.Text = "Направление";
             // 
             // pictureBox2
             // 
@@ -336,15 +336,17 @@ namespace sorter
             this.label5.Text = "_________________________________________________________________________________" +
     "______________________________________________________";
             // 
-            // pictureBox1
+            // VisualisationBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(307, 64);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(799, 359);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.VisualisationBox.BackColor = System.Drawing.Color.Black;
+            this.VisualisationBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.VisualisationBox.Location = new System.Drawing.Point(307, 64);
+            this.VisualisationBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.VisualisationBox.Name = "VisualisationBox";
+            this.VisualisationBox.Size = new System.Drawing.Size(799, 359);
+            this.VisualisationBox.TabIndex = 6;
+            this.VisualisationBox.TabStop = false;
+            this.VisualisationBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // button2
             // 
@@ -368,26 +370,26 @@ namespace sorter
             this.Controls.Add(this.VerticalLine);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.VisualisationBox);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.start_sort_button);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupRadioButtonDirection);
+            this.Controls.Add(this.groupRadioBattonInputMethod);
+            this.Controls.Add(this.groupRadioButtonAlgorithm);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SortingForm";
             this.Text = "Сортировка";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupRadioButtonAlgorithm.ResumeLayout(false);
+            this.groupRadioButtonAlgorithm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupRadioBattonInputMethod.ResumeLayout(false);
+            this.groupRadioBattonInputMethod.PerformLayout();
+            this.groupRadioButtonDirection.ResumeLayout(false);
+            this.groupRadioButtonDirection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VisualisationBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,16 +397,16 @@ namespace sorter
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupRadioButtonAlgorithm;
         private System.Windows.Forms.RadioButton BogoSortRadioButton;
         private System.Windows.Forms.RadioButton InsertSortRadioButton;
         private System.Windows.Forms.RadioButton ShakerSortRadioButton;
         private System.Windows.Forms.RadioButton bubbleSortRadioButton;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupRadioBattonInputMethod;
         private System.Windows.Forms.RadioButton FileInputRadioButton;
         private System.Windows.Forms.RadioButton RandomInputRadioButton;
         private System.Windows.Forms.RadioButton HandleInputRadioButton;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupRadioButtonDirection;
         private System.Windows.Forms.RadioButton DescendingRadioButton;
         private System.Windows.Forms.RadioButton AscendingRadioButton;
         private System.Windows.Forms.Button start_sort_button;
@@ -412,7 +414,7 @@ namespace sorter
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox VisualisationBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label VerticalLine;
         private System.Windows.Forms.Label label4;

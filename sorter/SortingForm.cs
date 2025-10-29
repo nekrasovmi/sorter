@@ -33,7 +33,7 @@ namespace sorter
         Stopwatch timer = new Stopwatch();
         static public minmaxcount test;
         private static Random rand = new Random();
-        public int[] originArr;
+        public int[] originArr =new int[0];
         RandomInputForm pForm = new RandomInputForm();
         HandleInputForm hIForm = new HandleInputForm();
         //int[] myArray;
@@ -55,9 +55,8 @@ namespace sorter
             InitializeComponent();
             Icon = Properties.Resources.sortingIco;
             this.DoubleBuffered = true;
-            buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
-            buff.Graphics.Clear(Color.Black);
-            buff.Render();
+            buff = BufferedGraphicsManager.Current.Allocate(VisualisationBox.CreateGraphics(), VisualisationBox.DisplayRectangle);
+            
         }
 
         private static int[] generateArrayRandom(int size, int minValue, int maxValue)
@@ -155,13 +154,13 @@ namespace sorter
                 //Graphics graphics = pictureBox1.CreateGraphics();
                 //graphics.Clear(Color.Black);
                 buff.Graphics.Clear(Color.Black);
-                int deltaW = pictureBox1.Width / array.Length;
-                int deltaH = pictureBox1.Height / array.Max();
+                int deltaW = VisualisationBox.Width / array.Length;
+                int deltaH = VisualisationBox.Height / array.Max();
 
                 for (int i = 0; i < array.Length; i++)
                 {
                     //graphics.FillRectangle(brush, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
-                    buff.Graphics.FillRectangle(brush, i * deltaW, pictureBox1.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
+                    buff.Graphics.FillRectangle(brush, i * deltaW, VisualisationBox.Height - (array[i] * deltaH), deltaW, array[i] * deltaH);
                     //buff.Render();
                 }
 
@@ -319,8 +318,9 @@ namespace sorter
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            if (originArr.Length != 0 && originArr !=null) {
+        {            
+            if (originArr.Length != 0)
+            {
                 buff.Graphics.Clear(Color.Black);
                 iterations = 0;
                 swaps = 0;
@@ -518,7 +518,7 @@ namespace sorter
             }
             else
             {
-                MessageBox.Show("ssa");
+                MessageBox.Show("Проверьте параметры массива:\nАлгоритм,\nНаправление\nВведенный массив");
                 //ShowDialog(MessageBox.Show();
             }
         }
@@ -562,7 +562,8 @@ namespace sorter
                 hIForm.Owner = this;
                 hIForm.ShowDialog();
                 originArr = hIForm.GetArray();
-                richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
+                if(originArr.Length != 0)
+                    richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
                 drawArray(originArr);
                 buff.Render();
             }
@@ -571,7 +572,8 @@ namespace sorter
                 pForm.Owner = this;
                 pForm.ShowDialog();
                 originArr = pForm.GetArray();
-                richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
+                if (originArr.Length != 0)
+                    richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
                 drawArray(originArr);
                 buff.Render();
             }
@@ -591,20 +593,64 @@ namespace sorter
                     {
                         originArr[i] = Convert.ToInt32(filetext[i]);
                     }
-                    richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
+                    if (originArr.Length != 0)
+                        richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
                     drawArray(originArr);
                     buff.Render();
                 }
             }           
         }
 
+        
+
         private void button5_Click(object sender, EventArgs e)
         {
-            
+            int RadioButtonCheckedCountAlgorithm = 0;
+            int RadioButtonCheckedCountInputMethod = 0;
+            int RadioButtonCheckedCountDirection = 0;
+            var RadioButtonCollectionAlgorithm = groupRadioButtonAlgorithm.Controls.OfType<RadioButton>();
+            var RadioBattonCollectionInputMethod = groupRadioBattonInputMethod.Controls.OfType<RadioButton>();
+            var RadioButtonCollectionDirection = groupRadioButtonDirection.Controls.OfType<RadioButton>();
+            foreach (var item in RadioButtonCollectionAlgorithm)
+            {                
+                if (item.Checked)
+                    RadioButtonCheckedCountAlgorithm++;                
+            }
+            foreach (var item in RadioBattonCollectionInputMethod)
+            {
+                if (item.Checked)
+                    RadioButtonCheckedCountInputMethod++;
+            }
+            foreach (var item in RadioButtonCollectionDirection)
+            {
+                if (item.Checked)
+                    RadioButtonCheckedCountDirection++;
+            }
+            if (RadioButtonCheckedCountAlgorithm == 0)
+                richTextBox1.AppendText("Алгоритм не выбран ");
+            if (RadioButtonCheckedCountDirection == 0)
+                MessageBox.Show("dasdasd");
+                //richTextBox1.AppendText("\nНаправление не выбрано " + rbs3CheckedCount);
+            /*if (rbs2CheckedCount == 0)
+                richTextBox1.AppendText("\nНе введен массив " + rbs2CheckedCount);
+            */
+            /*foreach (RadioButton item in rbs3)
+            {
+                if (item.Checked)
+                    rbs1Checked = true;
+                else
+                    richTextBox1.AppendText("Алгоритм не выбран:\n");
+            }*/
+            //richTextBox1.AppendText("Алгоритм не выбран:\n");
+            //richTextBox1.AppendText("Алгоритм не выбран:\n");
+            //richTextBox1.AppendText("Алгоритм не выбран:\n");
+
+
+
             //buff = BufferedGraphicsManager.Current.Allocate(pictureBox1.CreateGraphics(), pictureBox1.DisplayRectangle);
             //pictureBox1
             originArr = generateArrayRandom(rand.Next(20, 70), 1, 70);
-            richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
+            //richTextBox1.Text = "Массив:\n" + string.Join(" ", originArr);
             
             drawArray(originArr);
             buff.Render();
@@ -624,7 +670,8 @@ namespace sorter
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //buff.Graphics.Clear(Color.Black);
+            //buff.Render();
         }
 
         private void radioButton12_CheckedChanged(object sender, EventArgs e)
