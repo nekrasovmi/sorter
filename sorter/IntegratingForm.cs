@@ -14,7 +14,10 @@ namespace sorter
 {
     public partial class IntegratingForm : Form
     {
-        
+        private int scale = 20;        
+        private const float WIDTH = 575;
+        private const float HEIGHT = 185;
+
 
         private BufferedGraphics buff;
         public IntegratingForm()
@@ -26,8 +29,7 @@ namespace sorter
 
             double scale = 40;
             this.DoubleBuffered = true;
-            
-            //this.Paint += new PaintEventHandler(OnPaint);
+            //pictureBox2.Paint += new PaintEventHandler(pictureBox2_Paint);            
         }
 
         /* private void OnPaint(object sender, PaintEventArgs e)
@@ -38,6 +40,7 @@ namespace sorter
              //DrawFunction(g, x => Math.Sin(x));
          }
         */
+        /*
         private void DrawAxes2()
         {
             double scale = 40;
@@ -56,7 +59,7 @@ namespace sorter
                 buff.Graphics.DrawLine(gridPen, x, 0, x, Higth);
                 buff.Graphics.DrawLine(gridPen, 0, y, Width, y);
             }
-        }
+        }*/
         /*private void DrawAxes(Graphics g)
         {
             int Width = pictureBox2.Width;
@@ -107,9 +110,10 @@ namespace sorter
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //pictureBox2.Invalidated();
             ///////2*x^2
             //y=x*x
-            DrawAxes2();
+            //DrawAxes2();
             buff.Render();
             double a = 0;
             double b = 0;
@@ -122,37 +126,61 @@ namespace sorter
 
         private void pictureBox2_Paint(object sender, PaintEventArgs e)
         {
-            int scale = 20;
-            //int i = 0;
-            float Width = pictureBox2.Width;
-            float Higth = pictureBox2.Height;
-            int i = (int)Width/2;
-            //Console.WriteLine(Width + " " + Width);
+            //Console.WriteLine(numericUpDown1.Value);
+            //DrawingGrid(e, pictureBox2.Width, pictureBox2.Height, (int)numericUpDown1.Value);
+            //pictureBox2.Invalidated();
+            //int scale = 20;
+            //float Width = pictureBox2.Width;
+            //float Height = pictureBox2.Height;
+            float i = WIDTH/2;
+            float j = HEIGHT/2;
+            //Console.WriteLine(j);
             Graphics g = e.Graphics;
             //Point pointXY = new Point(); 
             g.Clear(Color.Black);
-            Pen p = new Pen(Color.Red,2);
-            g.DrawLine(p, Width/2, 0, Width/2, Higth);
-            g.DrawLine(p, 0, Higth/2, Width, Higth/2);
+            Pen axesPen = new Pen(Color.Red,2);
             Pen gridPen = new Pen(Color.LightGray, 1);
+            Pen funcPen = new Pen(Color.Blue, 1);
 
             while (i <= (int)Width)
             {
-                float x = i + scale;
-                Console.WriteLine(x);
-                g.DrawLine(gridPen, x, 0, x, Higth);
+                float x = i + scale;                
+                g.DrawLine(gridPen, x, 0, x, Height);
                 i = (int)x;
-                //i = i + (int)x;
-                //i = i + scale;
             }
-            i = (int)Width / 2;
             while (i >= 0)
             {
-                float x = i - scale;
-                Console.WriteLine(x);
-                g.DrawLine(gridPen, x, 0, x, Higth);
+                float x = i - scale;                
+                g.DrawLine(gridPen, x, 0, x, Height);
                 i = (int)x;
             }
+            ////////////////////////
+            while (j <= (int)Height)
+            {
+                
+                float y = j + scale;
+                //Console.WriteLine(y);
+                g.DrawLine(gridPen, 0, y, Width, y);
+                j = y;
+            }
+            
+            while (j >= 0)
+            {
+                float y = j - scale;                
+                g.DrawLine(gridPen, 0, y, Width, y);
+                j = y;
+            }
+
+            g.DrawLine(axesPen, WIDTH / 2, 0, WIDTH / 2, Height);    //Y Axes
+            g.DrawLine(axesPen, 0, HEIGHT / 2, WIDTH, HEIGHT / 2); // X Axes
+            
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            scale = (int)numericUpDown1.Value;
+            pictureBox2.Invalidate();
+            //DrawingGrid(PaintEventArgs pe, pictureBox2.Width, pictureBox2.Height, (int)numericUpDown1.Value);
         }
     }
 }
