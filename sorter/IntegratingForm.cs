@@ -65,25 +65,65 @@ namespace sorter
                 buff.Graphics.DrawLine(gridPen, 0, y, Width, y);
             }
         }*/
-        /*private void DrawAxes(Graphics g)
+        private void DrawAxes(Graphics g)
         {
-            int Width = pictureBox2.Width;
-            int Higth = pictureBox2.Height;
-            double scale = 40;
-            Pen axisPen = new Pen(Color.Black, 2);
-            g.DrawLine(axisPen, 0, Higth/2, Width, Higth/2);
-            g.DrawLine(axisPen, Width/2, 0, Width /2, Higth);
-            Pen gridPen = new Pen(Color.LightGray,1);
-            Font font = new Font("Arial",8);
-            for (int i=-10;i<=10;i++)
+            //Console.WriteLine(numericUpDown1.Value);
+            //DrawingGrid(e, pictureBox2.Width, pictureBox2.Height, (int)numericUpDown1.Value);
+            //pictureBox2.Invalidated();
+            //int scale = 20;
+            //float Width = pictureBox2.Width;
+            //float Height = pictureBox2.Height;
+            float i = WIDTH/2;
+            float j = HEIGHT/2;
+            //Console.WriteLine(j);
+            //Graphics g = e.Graphics;
+            //Point pointXY = new Point(); 
+            g.Clear(Color.Black);
+            Pen axesPen = new Pen(Color.Red,2);
+            Pen gridPen = new Pen(Color.LightGray, 1);
+            Pen funcPen = new Pen(Color.Blue, 1);
+
+            while (i <= (int)Width)
             {
-                int x = Width / 2 + (int)(i * scale);
-                int y = Higth / 2 + (int)(i * scale);
-                g.DrawLine(gridPen, x, 0, x, Higth);
+                float x = i + scale;                
+                g.DrawLine(gridPen, x, 0, x, Height);
+                i = (int)x;
+            }
+            while (i >= 0)
+            {
+                float x = i - scale;                
+                g.DrawLine(gridPen, x, 0, x, Height);
+                i = (int)x;
+            }
+            ////////////////////////
+            while (j <= (int)Height)
+            {
+                
+                float y = j + scale;
+                //Console.WriteLine(y);
                 g.DrawLine(gridPen, 0, y, Width, y);
+                j = y;
+            }
+            
+            while (j >= 0)
+            {
+                float y = j - scale;                
+                g.DrawLine(gridPen, 0, y, Width, y);
+                j = y;
+            }
+
+            g.DrawLine(axesPen, WIDTH / 2, 0, WIDTH / 2, Height);    //Y Axes
+            g.DrawLine(axesPen, 0, HEIGHT / 2, WIDTH, HEIGHT / 2); // X Axes
+
+            if (showDesc == true)
+            {
+                g.DrawString("X", new Font("Arial", 12, FontStyle.Bold), new SolidBrush(Color.Red), new PointF(WIDTH-15, (HEIGHT/2)+5));
+                g.DrawString("Y", new Font("Arial", 12, FontStyle.Bold), new SolidBrush(Color.Red), new PointF((WIDTH / 2) + 5, 5));
+                g.DrawString("0", new Font("Arial", 12, FontStyle.Bold), new SolidBrush(Color.Red), new PointF(WIDTH/2, HEIGHT / 2));
+                //g.DrawString("Y", new Font("Arial", 10), new SolidBrush(Color.Red), new PointF((WIDTH / 2), 10));
             }
         }
-        */
+        
         /*private void DrawFunction()
         {
             chart1.Series.Clear();
@@ -131,7 +171,8 @@ namespace sorter
 
         private void pictureBox2_Paint(object sender, PaintEventArgs e)
         {
-            //Console.WriteLine(numericUpDown1.Value);
+            DrawAxes(e.Graphics);
+            /*//Console.WriteLine(numericUpDown1.Value);
             //DrawingGrid(e, pictureBox2.Width, pictureBox2.Height, (int)numericUpDown1.Value);
             //pictureBox2.Invalidated();
             //int scale = 20;
@@ -185,7 +226,7 @@ namespace sorter
                 g.DrawString("Y", new Font("Arial", 12, FontStyle.Bold), new SolidBrush(Color.Red), new PointF((WIDTH / 2) + 5, 5));
                 g.DrawString("0", new Font("Arial", 12, FontStyle.Bold), new SolidBrush(Color.Red), new PointF(WIDTH/2, HEIGHT / 2));
                 //g.DrawString("Y", new Font("Arial", 10), new SolidBrush(Color.Red), new PointF((WIDTH / 2), 10));
-            }
+            }*/
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
