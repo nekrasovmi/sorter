@@ -18,6 +18,11 @@ namespace sorter
         private const float WIDTH = 575;
         private const float HEIGHT = 185;
 
+        private bool showXY = true;
+        private bool showGrid = true;
+        private bool showFunc = true;
+        private bool showDesc = true;
+
 
         private BufferedGraphics buff;
         public IntegratingForm()
@@ -173,7 +178,14 @@ namespace sorter
 
             g.DrawLine(axesPen, WIDTH / 2, 0, WIDTH / 2, Height);    //Y Axes
             g.DrawLine(axesPen, 0, HEIGHT / 2, WIDTH, HEIGHT / 2); // X Axes
-            
+
+            if (showDesc == true)
+            {
+                g.DrawString("X", new Font("Arial", 12, FontStyle.Bold), new SolidBrush(Color.Red), new PointF(WIDTH-15, (HEIGHT/2)+5));
+                g.DrawString("Y", new Font("Arial", 12, FontStyle.Bold), new SolidBrush(Color.Red), new PointF((WIDTH / 2) + 5, 5));
+                g.DrawString("0", new Font("Arial", 12, FontStyle.Bold), new SolidBrush(Color.Red), new PointF(WIDTH/2, HEIGHT / 2));
+                //g.DrawString("Y", new Font("Arial", 10), new SolidBrush(Color.Red), new PointF((WIDTH / 2), 10));
+            }
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
