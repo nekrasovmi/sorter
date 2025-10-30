@@ -23,6 +23,10 @@ namespace sorter
         private bool showFunc = true;
         private bool showDesc = true;
 
+        private static Pen funcPen = new Pen(Color.Blue, 3);
+        private static Pen axesPen = new Pen(Color.Red, 2);
+        private static Pen gridPen = new Pen(Color.LightGray, 1);
+
 
         private BufferedGraphics buff;
         public IntegratingForm()
@@ -32,7 +36,7 @@ namespace sorter
             buff = BufferedGraphicsManager.Current.Allocate(pictureBox2.CreateGraphics(), pictureBox2.DisplayRectangle);
             //DrawFunction();
 
-            double scale = 40;
+            //double scale = 40;
             this.DoubleBuffered = true;
             //pictureBox2.Paint += new PaintEventHandler(pictureBox2_Paint);            
         }
@@ -78,9 +82,8 @@ namespace sorter
             //Console.WriteLine(j);
             //Graphics g = e.Graphics;
             //Point pointXY = new Point(); 
-            g.Clear(Color.Black);
-            Pen axesPen = new Pen(Color.Red,2);
-            Pen gridPen = new Pen(Color.LightGray, 1);
+            //g.Clear(Color.Black);
+            
             Pen funcPen = new Pen(Color.Blue, 1);
 
             while (i <= (int)Width)
@@ -123,7 +126,47 @@ namespace sorter
                 //g.DrawString("Y", new Font("Arial", 10), new SolidBrush(Color.Red), new PointF((WIDTH / 2), 10));
             }
         }
-        
+
+        /*private void DrawFunc(Graphics g)
+        {
+            double x = 0;
+            double y = 0;
+            int centerX = width / 2;
+            int centerY = height / 2;
+            PointF previousPoint = new PointF(0,0);
+            Pen funcPen = new Pen(Color.Blue, 5);
+            //for( x = 0; x < 100; x+=0.1)
+            for (x = -WIDTH / (2 * scale); x <= WIDTH / (2 * scale); x += 0.05)
+            {
+                float screenX = centerX + (float)(x * scale);
+                float screenY = centerY - (float)(y * scale);
+                y = x*x;
+                PointF currentPoint = new PointF((float)x, (float)y);
+                g.DrawLine(funcPen, previousPoint, currentPoint);
+                previousPoint = currentPoint;
+            }
+        }*/
+        private void DrawFunc(Graphics g)
+        {
+            double x = 0;
+            double y = 0;
+            float centerX = WIDTH / 2;
+            float centerY = HEIGHT / 2;
+            PointF previousPoint = new PointF(0, 0);
+            Pen funcPen = new Pen(Color.Blue, 5);
+            //for( x = 0; x < 100; x+=0.1)
+            for (x = -WIDTH / (2 * scale); x <= WIDTH / (2 * scale); x += 0.05)
+            {
+                float screenX = centerX + (float)(x * scale);
+                float screenY = centerY - (float)(y * scale);
+                y = Math.Sin(x);
+                //PointF currentPoint = new PointF((float)x, (float)y);
+                PointF currentPoint = new PointF(screenX, screenY);
+                g.DrawLine(funcPen, previousPoint, currentPoint);
+                previousPoint = currentPoint;
+            }
+        }
+
         /*private void DrawFunction()
         {
             chart1.Series.Clear();
@@ -172,6 +215,7 @@ namespace sorter
         private void pictureBox2_Paint(object sender, PaintEventArgs e)
         {
             DrawAxes(e.Graphics);
+            DrawFunc(e.Graphics);
             /*//Console.WriteLine(numericUpDown1.Value);
             //DrawingGrid(e, pictureBox2.Width, pictureBox2.Height, (int)numericUpDown1.Value);
             //pictureBox2.Invalidated();
