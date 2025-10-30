@@ -159,7 +159,7 @@ namespace sorter
             {
                 float screenX = centerX + (float)(x * scale);
                 float screenY = centerY - (float)(y * scale);
-                y = Math.Sin(x);
+                y = 10+Math.Tan(x);
                 //PointF currentPoint = new PointF((float)x, (float)y);
                 PointF currentPoint = new PointF(screenX, screenY);
                 g.DrawLine(funcPen, previousPoint, currentPoint);
@@ -214,8 +214,10 @@ namespace sorter
 
         private void pictureBox2_Paint(object sender, PaintEventArgs e)
         {
-            DrawAxes(e.Graphics);
-            DrawFunc(e.Graphics);
+            Graphics g = e.Graphics;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            DrawAxes(g);
+            DrawFunc(g);
             /*//Console.WriteLine(numericUpDown1.Value);
             //DrawingGrid(e, pictureBox2.Width, pictureBox2.Height, (int)numericUpDown1.Value);
             //pictureBox2.Invalidated();
