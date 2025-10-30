@@ -33,7 +33,7 @@ namespace sorter
         Stopwatch timer = new Stopwatch();
         static public minmaxcount test;
         private static Random rand = new Random();
-        public int[] originArr =new int[0];
+        public int[] originArr = new int[0];
         RandomInputForm pForm = new RandomInputForm();
         HandleInputForm hIForm = new HandleInputForm();
         //int[] myArray;
