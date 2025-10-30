@@ -122,9 +122,12 @@ namespace sorter
 
         private void pictureBox2_Paint(object sender, PaintEventArgs e)
         {
-            double scale = 40;
+            int scale = 20;
+            //int i = 0;
             float Width = pictureBox2.Width;
             float Higth = pictureBox2.Height;
+            int i = (int)Width/2;
+            //Console.WriteLine(Width + " " + Width);
             Graphics g = e.Graphics;
             //Point pointXY = new Point(); 
             g.Clear(Color.Black);
@@ -132,12 +135,23 @@ namespace sorter
             g.DrawLine(p, Width/2, 0, Width/2, Higth);
             g.DrawLine(p, 0, Higth/2, Width, Higth/2);
             Pen gridPen = new Pen(Color.LightGray, 1);
-            for (int i = 0; i < 10; i++)
+
+            while (i <= (int)Width)
             {
-                float x = Width / 2 + (int)(i * scale);
-                float y = Higth / 2 + (int)(i * scale);
+                float x = i + scale;
+                Console.WriteLine(x);
                 g.DrawLine(gridPen, x, 0, x, Higth);
-                g.DrawLine(gridPen, 0, y, Width, y);
+                i = (int)x;
+                //i = i + (int)x;
+                //i = i + scale;
+            }
+            i = (int)Width / 2;
+            while (i >= 0)
+            {
+                float x = i - scale;
+                Console.WriteLine(x);
+                g.DrawLine(gridPen, x, 0, x, Higth);
+                i = (int)x;
             }
         }
     }
